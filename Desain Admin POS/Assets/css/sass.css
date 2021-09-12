@@ -1,0 +1,136 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  outline: none;
+}
+
+/* Variable CSS */
+:root {
+  --header-height: 3rem;
+
+  /* Warna Warni */
+  --main-color: #c20d5a;
+  --secondary-color: rgb(7, 3, 45);
+  --graadient-utama: linear-gradient(
+    121deg,
+    rgba(194, 13, 90, 1) 25%,
+    rgb(255 0 194 / 42%) 100%
+  );
+  --bg-gelap: #383848;
+  --main-color-alternative: #af547d;
+  --warna-tulisan: #707070;
+  --warna-putih: #ffffff;
+  --white-alt: #e6e6e6;
+
+  /* Penulisan (Typografi dan font) */
+  --font-body: "Poppins", sans-serif;
+  --biggest-font-size: 2.25rem;
+  --h1-font-size: 1.5rem;
+  --h2-font-size: 1.25rem;
+  --h3-font-size: 1rem;
+  --normal-font-size: 0.938rem;
+  --small-font-size: 0.813rem;
+  --smaller-font-size: 0.75rem;
+
+  /* Font width */
+  --font-medium: 500;
+  --font-semi-bold: 600;
+
+  /* Padding dan Margin */
+  --md-1: 0.5rem;
+  --mb-2: 1rem;
+  --mb-3: 1.5rem;
+  --mb-4: 2rem;
+  --mb-5: 2.5rem;
+  --mb-6: 3rem;
+
+  /* Z-index */
+  --z-tooltup: 10;
+  --z-fixed: 100;
+}
+
+/* Akhir Variabel CSS */
+
+/* Base CSS */
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: var(--secondary-color);
+  font-size: 13px;
+  font-weight: 400;
+  font-family: var(--font-body);
+  line-height: 28px;
+  overflow-x: hidden;
+  background: hsl(200deg, 27%, 98%);
+}
+
+img {
+  vertical-align: middle;
+  height: auto;
+}
+
+a {
+  text-decoration: none;
+  display: inline-block;
+}
+
+a:hover {
+  text-decoration: none;
+  color: var(--warna-putih);
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+button:focus {
+  outline: none;
+}
+
+/* Akhir Base Style */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+li,
+span,
+label {
+  margin: 0;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+.ovh {
+  overflow: hidden;
+}
+
+table.table {
+  white-space: nowrap;
+}
+
+.di-btn {
+  color: aliceblue;
+  padding: 0.7rem var(--mb-2);
+  font-weight: 500;
+  border-radius: 3px;
+  box-shadow: 0px 6px 19px 1px #06041d4a;
+}
