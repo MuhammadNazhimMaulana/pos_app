@@ -1,4 +1,4 @@
-# Pos_Ppp
+# Pos_App
 
 - Indonesia
   Merupakan sebuah aplikasi yang bisa digunakan untuk melakukan manajemen kasir. Aplikasi yang saya buat ini merupakan bagian dari latihan saya

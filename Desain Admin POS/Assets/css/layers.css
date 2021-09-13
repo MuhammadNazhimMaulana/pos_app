@@ -75,7 +75,7 @@ a.sidebarCollapse {
 .dropdown-menu {
   z-index: var(--z-verified);
   max-width: 15rem;
-  right: -21px !important;
+  right: 0px !important;
   left: auto !important;
   min-width: 16rem;
   padding: 0;
@@ -101,10 +101,10 @@ img.user-note {
   color: var(--secondary-color);
   width: 100%;
   white-space: initial;
-  line-height: 13px;
+  line-height: 18px;
   border-bottom: 1px solid #ddd;
   align-items: center;
-  padding: 10px;
+  padding: 15px;
 }
 
 .message-item {
@@ -131,6 +131,12 @@ p.status-link {
   border-radius: 50%;
   background: var(--gradient-utama);
   color: var(--warna-putih);
+}
+
+p.status-link span {
+  color: #fff !important;
+  display: flex;
+  padding: 0 !important;
 }
 
 p.note-name {
@@ -163,4 +169,104 @@ p.m-user-name {
 p.user-role {
   font-size: 12px;
   color: var(--main-color);
+}
+
+/* Dropdown untuk gambar profile */
+.media {
+  background: var(--main-color);
+  text-align: center;
+  padding-top: 10px;
+}
+
+img.img-fluid.mr-2 {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+}
+
+.media-body {
+  margin-top: 10px;
+  line-height: 20px;
+  padding-bottom: 10px;
+}
+
+.media-body h5 {
+  font-weight: 700;
+  color: var(--warna-putih);
+}
+
+.media-body p {
+  font-size: 13px;
+  color: var(--warna-putih);
+  font-weight: 500;
+}
+
+.dp-main-menu a span {
+  color: var(--main-color);
+  padding-right: 8px;
+}
+
+/* Sidebar */
+
+.left-menu {
+  height: 100vh;
+  width: 240px;
+  position: fixed;
+  box-shadow: 3px -1px 19px 1px #efeeee;
+  overflow: scroll;
+  transition: 0.5s;
+  margin-top: 50px;
+  background: var(--warna-putih);
+}
+
+nav.animated {
+  position: relative;
+  /* width: 240px; */
+}
+
+.left-menu::-webkit-scrollbar {
+  width: 6px;
+}
+
+.left-menu::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background: linear-gradient(
+    0deg,
+    rgba(180, 58, 112, 1) 0%,
+    rgba(232, 37, 170) 54%
+  );
+}
+
+ul#sidebar {
+  margin: 0;
+  padding: 0;
+}
+
+ul#sidebar li a:hover {
+  color: var(--main-color);
+  background: #f7f7f7;
+  border-left: 5px solid var(--main-color);
+}
+
+ul#sidebar li a {
+  display: block;
+  padding: 7px 15px;
+  transition: 0.2s;
+  font-size: 12px;
+  font-weight: 500;
+  color: #636262;
+}
+
+li.active {
+  border-left: 5px solid var(--main-color);
+}
+
+li.active a {
+  color: var(--main-color) !important;
+  background: #f9f9f9;
+}
+
+ul#sidebar li a i {
+  padding-right: 7px;
+  font-size: 14px;
 }
