@@ -3,6 +3,10 @@
   box-shadow: -1px 4px 20px 1px #f1f1f185;
 }
 
+.left-menu.hide {
+  width: 0;
+}
+
 header.header {
   justify-content: space-between;
   align-items: center;
@@ -215,7 +219,7 @@ img.img-fluid.mr-2 {
   box-shadow: 3px -1px 19px 1px #efeeee;
   overflow: scroll;
   transition: 0.5s;
-  margin-top: 50px;
+  margin-top: -15px;
   background: var(--warna-putih);
 }
 

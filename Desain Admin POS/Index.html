@@ -18,6 +18,8 @@
     <link rel="stylesheet" href="Assets/css/layers.css">
     <link rel="stylesheet" href="Assets/css/responsive.css">
 
+    <!-- Link CSS Chart -->
+    <link rel="stylesheet" href="Assets/css/chart/apexcharts.css">
 </head>
 <body>
     <div class="main-wrapper">
@@ -28,7 +30,7 @@
                     <div class="logo">
                         Bonevian
                     </div>
-                    <a href="" class="sidebarCollapse" data-placement="bottom">
+                    <a href="#" id="toggleSidebar" class="sidebarCollapse" data-placement="bottom">
                         <span class="fas fa-bars"></span>
                     </a>
                 </div>
@@ -235,6 +237,138 @@
         </div>
         <!-- Akhir dari sidebar -->
 
+        <div class="content-wrapper">
+            <section class="dashboard-top-sec">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <div class="bg-white top-chart-ear">
+                                <div class="row">
+                                    <div class="col-sm-4 my-2 pe-0">
+                                        <div class="last-month">
+                                            <h5>Dashboard</h5>
+                                            <p>Overviewnya</p>
+
+                                            <div class="earn">
+                                                <h3>221.000,00</h3>
+                                                <p>Bulan Ini</p>
+                                            </div>
+                                            <div class="sale mb-3">
+                                                <h2>95</h2>
+                                                <p>Bulan ini</p>
+                                            </div>
+
+                                            <a href="#" class="di-btn purple-gradient">Bulan Lalu</a>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-sm-8 my-2 ps-0">
+                                        <div class="classic-tabs">
+                                            <!-- Nav Tabs disini -->
+                                            <div class="tabs-wrapper">
+                                                <ul class="nav nav-pills chart-header-tab mb-3" id="pills-tab" role="tablist">
+                                                    <li class="nav-item">
+                                                      <a href="#" class="nav-link chart-nav active" id="pills-minggu-tab" data-bs-toggle="pill" data-bs-target="#pills-minggu" type="button" role="tab" aria-controls="pills-minggu" aria-selected="true">Minggu</a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                      <a href="#" class="nav-link chart-nav" id="pills-bulan-tab" data-bs-toggle="pill" data-bs-target="#pills-bulan" type="button" role="tab" aria-controls="pills-bulan" aria-selected="false">Bulan</a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                      <a href="#" class="nav-link chart-nav" id="pills-tahun-tab" data-bs-toggle="pill" data-bs-target="#pills-tahun" type="button" role="tab" aria-controls="pills-tahun" aria-selected="false">Tahun</a>
+                                                    </li>
+                                                  </ul>
+                                                  <div class="tab-content" id="pills-tabContent">
+                                                    <div class="tab-pane fade show active" id="pills-minggu" role="tabpanel" aria-labelledby="pills-minggu-tab">
+                                                        <div class="widget-content">
+                                                            <div id="mingguan"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="tab-pane fade" id="pills-bulan" role="tabpanel" aria-labelledby="pills-bulan-tab">
+                                                        <div class="widget-content">
+                                                            <div id="bulanan"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="tab-pane fade" id="pills-tahun" role="tabpanel" aria-labelledby="pills-tahun-tab">
+                                                        <div class="widget-content">
+                                                            <div id="tahunan"></div>
+                                                        </div>
+                                                    </div>
+                                                  </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <!-- Awal Smal Boxes -->
+                                <div class="wre-sec">
+                                    <div class="row">
+                                        <div class="col-md-3 col-sm-3 col-6 my-1 bdr-cls">
+                                            <div class="earn-view">
+                                                <span class="fas fa-crown earn-icon"></span>
+            
+                                                    <div class="earn-view-text">
+                                                        <p class="name-text">
+                                                            Balance
+                                                        </p>
+                                                        <h6 class="balance-text">
+                                                            Rp 123.000.000,00
+                                                        </h6>
+                                                    </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 col-sm-3 col-6 my-1 bdr-cls">
+                                            <div class="earn-view">
+                                                <span class="fas fa-heart earn-icon"></span>
+            
+                                                    <div class="earn-view-text">
+                                                        <p class="name-text">
+                                                            Referral 
+                                                        </p>
+                                                        <h6 class="balance-text">
+                                                            Rp 103.000,00
+                                                        </h6>
+                                                    </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 col-sm-3 col-6 my-1 bdr-cls">
+                                            <div class="earn-view">
+                                                <span class="fab fa-salesforce earn-icon"></span>
+            
+                                                    <div class="earn-view-text">
+                                                        <p class="name-text">
+                                                            Estimasi Penjualan
+                                                        </p>
+                                                        <h6 class="balance-text">
+                                                            Rp 1.000,00
+                                                        </h6>
+                                                    </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 col-sm-3 col-6 my-1 bdr-cls">
+                                            <div class="earn-view">
+                                                <span class="fas fa-chart-line earn-icon"></span>
+            
+                                                    <div class="earn-view-text">
+                                                        <p class="name-text">
+                                                            Pendapatan
+                                                        </p>
+                                                        <h6 class="balance-text">
+                                                            Rp 1.000.,00
+                                                        </h6>
+                                                    </div>
+                                            </div>
+                                        </div>
+                                    </div>    
+                                </div>
+                                <!-- Akhir Small Boxes -->
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
 
 
     </div>
@@ -247,6 +381,10 @@
 
     <!-- Link Custom JS -->
     <script src="Assets/js/main.js"></script>
+
+    <!-- Link JS Chart -->
+    <script src="Assets/js/chart/apexcharts.min.js"></script>
+    <script src="Assets/js/chart/chart.js"></script>
     
 </body>
 </html>
