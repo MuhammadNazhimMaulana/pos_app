@@ -100,3 +100,69 @@
   font-size: 16px;
   color: var(--warna-putih);
 }
+
+.wallet {
+  background: var(--main-color);
+}
+
+.referral {
+  background: #7d12ce;
+}
+
+.sales {
+  background: #0ea3d0;
+}
+
+.earning {
+  background: #fbbf15;
+}
+
+/* Bagian Traffic */
+.traffic-title {
+  text-align: left;
+  font-size: 17px;
+  font-weight: 800;
+  padding-left: 15px;
+}
+
+div#chart-2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Bagian Small Chart */
+.revinue.revinue-one-hibrid {
+  background: linear-gradient(
+    121deg,
+    rgba(194, 13, 90, 1) 25%,
+    rgb(162, 101, 182) 100%
+  );
+}
+
+.revinue {
+  padding-top: 15px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.w-title {
+  display: flex;
+  padding: 0 7px 10px;
+  align-items: center;
+}
+
+.w-icon {
+  font-size: 28px;
+  color: var(--warna-putih);
+  padding-right: var(--mb-2);
+}
+
+.sm-chart-text {
+  line-height: 20px;
+  color: var(--warna-putih);
+}
+
+p.w-value {
+  font-size: 16px;
+}

@@ -347,4 +347,176 @@ d_1C_3.render();
     ==============================
 */
 
-            
+/*
+    ==================================
+        Traffic | Options
+    ==================================
+*/
+
+var options = {
+    chart: {
+        type: 'donut',
+        width: 380
+    },
+    colors: ['#5c1ac3', '#c20d5a', '#e2a03f', '#c20d5a'],
+    dataLabels: {
+        enabled: false
+    },
+    legend: {
+        position: 'bottom',
+        horizontalAlign: 'center',
+        fontSize: '14px',
+        markers: {
+            width: 10,
+            height: 10,
+        },
+        itemMargin: {
+            horizontal: 9,
+            vertical: 8
+        }
+    },
+    plotOptions: {
+        pie: {
+            donut: {
+                size: '65%',
+                background: 'transparent',
+                labels: {
+                    show: true,
+                    name: {
+                        show: true,
+                        fontSize: '20px',
+                        fontFamily: 'Nunito, sans-serif',
+                        color: undefined,
+                        offsetY: -10
+                    },
+                    value: {
+                        show: true,
+                        fontSize: '26px',
+                        fontFamily: 'Nunito, sans-serif',
+                        color: '#bfc9d4',
+                        offsetY: 16,
+                        formatter: function(val) {
+                            return val
+                        }
+                    },
+                    total: {
+                        show: true,
+                        showAlways: true,
+                        label: 'Total',
+                        color: '#c20d5a',
+                        formatter: function(w) {
+                            return w.globals.seriesTotals.reduce(function(a, b) {
+                                return a + b
+                            }, 0)
+                        }
+                    }
+                }
+            }
+        }
+    },
+
+    series: [985, 737, 270],
+    labels: ['Referral', 'Google', 'Others'],
+    responsive: [{
+        breakpoint: 1599,
+        options: {
+            chart: {
+                width: '370px',
+                height: '385px'
+            },
+            legend: {
+                position: 'bottom'
+            }
+        },
+
+        breakpoint: 1439,
+        options: {
+            chart: {
+                width: '370px',
+                height: '385px'
+            },
+            legend: {
+                position: 'bottom'
+            },
+            plotOptions: {
+                pie: {
+                    donut: {
+                        size: '65%',
+                    }
+                }
+            }
+        },
+    }]
+}
+
+
+/*
+    ==============================
+    |    @Render Charts Script    |
+    ==============================
+*/
+
+
+/*
+      =================================
+          Traffic | Render
+      =================================
+  */
+
+var chart = new ApexCharts(
+    document.querySelector("#chart-2"),
+    options
+);
+
+chart.render();
+
+// Followers
+
+
+var d_1options3 = {
+    chart: {
+        id: 'sparkline1',
+        type: 'area',
+        height: 50,
+        sparkline: {
+            enabled: true
+        },
+    },
+    stroke: {
+        curve: 'smooth',
+        width: 2,
+    },
+    series: [{
+        name: 'Sales',
+        data: [38, 60, 38, 52, 36, 40, 28]
+    }],
+    labels: ['1', '2', '3', '4', '5', '6', '7'],
+    yaxis: {
+        min: 0
+    },
+    colors: ['#4361ee'],
+    tooltip: {
+        x: {
+            show: false,
+        }
+    },
+    fill: {
+        type: "gradient",
+        gradient: {
+            type: "vertical",
+            shadeIntensity: 1,
+            inverseColors: !1,
+            opacityFrom: .60,
+            opacityTo: .05,
+            stops: [100, 100]
+        }
+    }
+}
+
+
+// Followers
+
+
+var d_1C_5 = new ApexCharts(document.querySelector("#hybrid-followers"), d_1options3);
+d_1C_5.render()
+                     
