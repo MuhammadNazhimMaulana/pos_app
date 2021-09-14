@@ -520,3 +520,167 @@ var d_1options3 = {
 var d_1C_5 = new ApexCharts(document.querySelector("#hybrid-followers"), d_1options3);
 d_1C_5.render()
                      
+
+// Referral
+
+
+var d_1options4 = {
+    chart: {
+        id: 'sparkline1',
+        type: 'area',
+        height: 50,
+        sparkline: {
+            enabled: true
+        },
+    },
+    stroke: {
+        curve: 'smooth',
+        width: 0,
+    },
+    series: [{
+        name: 'Pengunjung Halaman',
+        data: [60, 28, 52, 38, 40, 36, 38]
+    }],
+    labels: ['1', '2', '3', '4', '5', '6', '7'],
+    yaxis: {
+        min: 0
+    },
+    colors: ['#fff'],
+    tooltip: {
+        x: {
+            show: false,
+        }
+    },
+    fill: {
+        type: "gradient",
+        gradient: {
+            type: "vertical",
+            shadeIntensity: 1,
+            inverseColors: !1,
+            opacityFrom: .60,
+            opacityTo: .05,
+            stops: [100, 100]
+        }
+    }
+}
+
+// Referral
+
+
+var d_1C_6 = new ApexCharts(document.querySelector("#pengunjung-web"), d_1options4);
+d_1C_6.render()
+
+// Engagement Rate
+
+
+var d_1options5 = {
+    chart: {
+        id: 'sparkline1',
+        type: 'area',
+        height: 50,
+        sparkline: {
+            enabled: true
+        },
+    },
+    stroke: {
+        curve: 'smooth',
+        width: 2,
+    },
+    fill: {
+        opacity: 1,
+    },
+    series: [{
+        name: 'Bonus Rate',
+        data: [28, 50, 36, 60, 38, 52, 38]
+    }],
+    labels: ['1', '2', '3', '4', '5', '6', '7'],
+    yaxis: {
+        min: 0
+    },
+    colors: ['#1abc9c'],
+    tooltip: {
+        x: {
+            show: false,
+        }
+    },
+    fill: {
+        type: "gradient",
+        gradient: {
+            type: "vertical",
+            shadeIntensity: 1,
+            inverseColors: !1,
+            opacityFrom: .50,
+            opacityTo: .05,
+            stops: [100, 100]
+        }
+    }
+}
+
+
+// Engagement Rate
+
+
+var d_1C_7 = new ApexCharts(document.querySelector("#rate"), d_1options5);
+d_1C_7.render()
+
+
+// Revenue Rate
+
+
+var d_1options6 = {
+    chart: {
+        id: 'sparkline1',
+        type: 'area',
+        height: 50,
+        sparkline: {
+            enabled: true
+        },
+    },
+    stroke: {
+        curve: 'smooth',
+        width: 2,
+    },
+    fill: {
+        opacity: 1,
+    },
+    series: [{
+        name: 'Revenue Status',
+        data: [28, 50, 36, 60, 38, 52, 38]
+    }],
+    labels: ['1', '2', '3', '4', '5', '6', '7'],
+    yaxis: {
+        min: 0
+    },
+    colors: ['#af4190'],
+    tooltip: {
+        x: {
+            show: false,
+        }
+    },
+    fill: {
+        type: "gradient",
+        gradient: {
+            type: "vertical",
+            shadeIntensity: 1,
+            inverseColors: !1,
+            opacityFrom: .30,
+            opacityTo: .05,
+            stops: [100, 100]
+        }
+    }
+}
+
+
+/*
+    ==============================
+    |    @Render Charts Script    |
+    ==============================
+*/
+
+
+// Engagement Rate
+
+
+var d_1C_7 = new ApexCharts(document.querySelector("#status"), d_1options6);
+d_1C_7.render()
+                    
