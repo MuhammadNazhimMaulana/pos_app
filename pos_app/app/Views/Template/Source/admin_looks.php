@@ -10,19 +10,20 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- Link CSS Bootstrap -->
-    <link rel="stylesheet" href="Assets/css/bootstrap/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="Assets/css/datatables/jquery.dataTables.css">    
+    <link rel="stylesheet" href="<?= base_url('css/bootstrap/bootstrap.min.css') ?>">
+    <link rel="stylesheet" type="text/css" href="<?= base_url('css/datatables/jquery.dataTables.css')?>">    
 
     <!-- Link custom css -->
-    <link rel="stylesheet" href="Assets/css/style.css">
-    <link rel="stylesheet" href="Assets/css/sass.css">
-    <link rel="stylesheet" href="Assets/css/layers.css">
-    <link rel="stylesheet" href="Assets/css/responsive.css">
+    <link rel="stylesheet" href="<?= base_url('css/style.css')?>">
+    <link rel="stylesheet" href="<?= base_url('css/sass.css')?>">
+    <link rel="stylesheet" href="<?= base_url('css/layers.css')?>">
+    <link rel="stylesheet" href="<?= base_url('css/responsive.css')?>">
 
     <!-- Link CSS Chart -->
-    <link rel="stylesheet" href="Assets/css/chart/apexcharts.css">
+    <link rel="stylesheet" href="<?= base_url('css/chart/apexcharts.css')?>">
 </head>
 <body>
+
     <div class="main-wrapper">
         <!-- Navbar Awal-->
         <div class="header-container fixed-top">
@@ -38,7 +39,7 @@
                 <ul class="navbar-item flex-row ml-auto">
                     <li class="nav-item dropdown user-profile-dropdown">
                         <a href="" class="nav-link user" id="Notif" data-bs-toggle="dropdown">
-                            <img class="icon" src="Assets/img/bell.svg" alt="">
+                            <img class="icon" src="<?= base_url('img/bell.svg')?>" alt="">
                             <p class="count purple-gradient">5</p>
                         </a>
 
@@ -74,7 +75,7 @@
 
                     <li class="nav-item dropdown user-profile-dropdown">
                         <a href="" class="nav-link user" id="Notif" data-bs-toggle="dropdown">
-                            <img class="icon" src="Assets/img/envelope.svg" alt="">
+                            <img class="icon" src="<?= base_url('img/envelope.svg')?>" alt="">
                             <p class="count bg-clc">5</p>
                         </a>
 
@@ -95,7 +96,7 @@
                     </li>
                     <li class="nav-item dropdown user-profile-dropdown">
                         <a href="" class="nav-link user" id="Notif" data-bs-toggle="dropdown">
-                            <img class="icon" src="Assets/img/user.svg" alt="">
+                            <img class="icon" src="<?= base_url('img/user.svg')?>" alt="">
                         </a>
 
                         <!-- Awal Dropdown -->
@@ -612,18 +613,18 @@
     </div>
 
     <!-- Link JS Bootsrap -->
-    <script src="Assets/js/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="<?= base_url('js/bootstrap/bootstrap.bundle.min.js')?>"></script>
 
     <!-- Link JS -->
-    <script src="Assets/js/jquery.min.js"></script>
-    <script type="text/javascript" src="Assets/js/datatables/jquery.dataTables.js"></script>
+    <script src="<?= base_url('js/jquery.min.js')?>"></script>
+    <script type="text/javascript" src="<?= base_url('js/datatables/jquery.dataTables.js')?>"></script>
 
     <!-- Link Custom JS -->
-    <script src="Assets/js/main.js"></script>
+    <script src="<?= base_url('js/main.js')?>"></script>
 
     <!-- Link JS Chart -->
-    <script src="Assets/js/chart/apexcharts.min.js"></script>
-    <script src="Assets/js/chart/chart.js"></script>
+    <script src="<?= base_url('js/chart/apexcharts.min.js')?>"></script>
+    <script src="<?= base_url('js/chart/chart.js')?>"></script>
     
 </body>
 </html>
