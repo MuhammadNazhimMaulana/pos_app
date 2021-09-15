@@ -17,3 +17,8 @@ $(document).ready(function(){
         $(".content-wrapper").toggleClass("hide");
     });
 });
+
+// Konfigurasi Tabel
+$(document).ready(function() {
+    $('#tabel-pesanan').DataTable();
+} );

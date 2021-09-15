@@ -11,6 +11,7 @@
 
     <!-- Link CSS Bootstrap -->
     <link rel="stylesheet" href="Assets/css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="Assets/css/datatables/jquery.dataTables.css">    
 
     <!-- Link custom css -->
     <link rel="stylesheet" href="Assets/css/style.css">
@@ -470,7 +471,7 @@
                 <div class="all-admin my-5">
                     <div class="container-fluid">
                         <div class="row">
-                            <div class="col-md-4">
+                            <div class="col-md-4 col-sm-6">
                                 <div class="admin-list">
                                     <p class="admin-ac-title">Seluruh Admin</p>
                                     <ul class="admin-ul">
@@ -478,7 +479,7 @@
                                             <img class="gambar-admin" src="Assets/img/user-1.png">
                                             <div class="admin-ac-details">
                                                 <div>
-                                                    <p class="admin-name">Anto</p>
+                                                    <a href="#" class="admin-name">Anto</a>
                                                     <p class="activity-text">Aktif Sekarang</p>
                                                 </div>
                                                 <div class="status bg-success"></div>
@@ -487,30 +488,116 @@
                                         </li>
 
                                         <li class="admin-li">
-                                            <img class="gambar-admin" src="Assets/img/user-1.png">
+                                            <img class="gambar-admin" src="Assets/img/user-2.png">
                                             <div class="admin-ac-details">
                                                 <div>
-                                                    <p class="admin-name">Nino</p>
-                                                    <p class="activity-text">Aktif Sekarang</p>
+                                                    <a href="#" class="admin-name">Nino</a>
+                                                    <p class="activity-text">Aktif 15 Menit Yang lalu</p>
                                                 </div>
-                                                <div class="status bg-success"></div>
+                                                <div class="status bg-primary"></div>
 
                                             </div>
                                         </li>
 
                                         <li class="admin-li">
-                                            <img class="gambar-admin" src="Assets/img/user-1.png">
+                                            <img class="gambar-admin" src="Assets/img/user-3.png">
                                             <div class="admin-ac-details">
                                                 <div>
-                                                    <p class="admin-name">Nono</p>
-                                                    <p class="activity-text">Aktif Sekarang</p>
+                                                    <a href="#" class="admin-name">Nono</a>
+                                                    <p class="activity-text">Aktif 1 Bulan Lalu</p>
                                                 </div>
-                                                <div class="status bg-success"></div>
+                                                <div class="status bg-danger"></div>
 
                                             </div>
                                         </li>
 
                                     </ul>
+                                </div>
+                            </div>
+
+                            <div class="col-md-8 col-sm-6">
+                                <div class="order-list">
+                                    <p class="order-ac-title">Status Pesanan</p>
+
+                                    <!-- Awal Tabel -->
+                                    <div class="data-table-section table-responsive">
+                                        <table id="tabel-pesanan" class="table table-striped" style="width:100%">
+                                            <thead>
+                                                <tr>
+                                                    <th>Name</th>
+                                                    <th>Position</th>
+                                                    <th>Office</th>
+                                                    <th>Age</th>
+                                                    <th>Start date</th>
+                                                    <th>Salary</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="order-view-tb">
+                                                <tr>
+                                                    <td>Tiger Nixon</td>
+                                                    <td>System Architect</td>
+                                                    <td>Edinburgh</td>
+                                                    <td>61</td>
+                                                    <td>2011/04/25</td>
+                                                    <td>
+                                                        <a href="#" class="status-tb-btn bg-cla">Sukses</a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Garrett Winters</td>
+                                                    <td>Accountant</td>
+                                                    <td>Tokyo</td>
+                                                    <td>63</td>
+                                                    <td>2011/07/25</td>
+                                                    <td>
+                                                        <a href="#" class="status-tb-btn bg-clb">Terbuka</a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Ashton Cox</td>
+                                                    <td>Junior Technical Author</td>
+                                                    <td>San Francisco</td>
+                                                    <td>66</td>
+                                                    <td>2009/01/12</td>
+                                                    <td>
+                                                        <a href="#" class="status-tb-btn bg-clc">Ditahan</a>                                                        
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Cedric Kelly</td>
+                                                    <td>Senior Javascript Developer</td>
+                                                    <td>Edinburgh</td>
+                                                    <td>22</td>
+                                                    <td>2012/03/29</td>
+                                                    <td>
+                                                        <a href="#" class="status-tb-btn bg-cld">Diperiksa</a>                                                        
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Airi Satou</td>
+                                                    <td>Accountant</td>
+                                                    <td>Tokyo</td>
+                                                    <td>33</td>
+                                                    <td>2008/11/28</td>
+                                                    <td>
+                                                        <a href="#" class="status-tb-btn bg-cla">Proses</a>                                                        
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Diablo</td>
+                                                    <td>Accountant</td>
+                                                    <td>Tokyo</td>
+                                                    <td>38</td>
+                                                    <td>2008/11/28</td>
+                                                    <td>
+                                                        <a href="#" class="status-tb-btn bg-clb">Buka</a>                                                        
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!-- Akhir Tabel -->
+
                                 </div>
                             </div>
                         </div>
@@ -529,6 +616,7 @@
 
     <!-- Link JS -->
     <script src="Assets/js/jquery.min.js"></script>
+    <script type="text/javascript" src="Assets/js/datatables/jquery.dataTables.js"></script>
 
     <!-- Link Custom JS -->
     <script src="Assets/js/main.js"></script>
