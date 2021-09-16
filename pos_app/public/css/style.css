@@ -298,3 +298,17 @@ tbody.order-view-tb tr {
   border-radius: 5px;
   color: var(--warna-putih);
 }
+
+/* Bagian Kategori */
+a.di-btn.purple-gradient.mt-5 {
+  float: left;
+  margin-left: 25px;
+}
+
+.last-month.kategori {
+  margin-bottom: 100px;
+}
+
+.data-table-section.table-responsive.tbl-kategori {
+  padding: 50px;
+}
