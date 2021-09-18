@@ -40,6 +40,7 @@ class Validation
     //--------------------------------------------------------------------
     // Rules
 
+	// Bagian Kategori
 	public $kategori = [
 		'nama_kategori' => [
 			'rules' => 'required|is_unique[tbl_kategori.nama_kategori]',
@@ -79,6 +80,61 @@ class Validation
 			'required' => '{field} Harus diisi',
 		],
 		'keterangan' => [
+			'required' => '{field} Harus diisi',
+		],
+	];
+
+	// Bagian Barang
+	public $barang = [
+		'id_kategori' => [
+			'rules' => 'required',
+		],
+		'nama_barang' => [
+			'rules' => 'required',
+		],
+		'foto_barang' => [
+			'rules' => 'uploaded[foto_barang]',
+		],
+		'status' => [
+			'rules' => 'required',
+		],
+	];
+
+	public $barang_errors = [
+		'id_kategori' => [
+			'required' => '{field} Harus diisi',
+		],
+		'nama_barang' => [
+			'required' => '{field} Harus diisi',
+		],
+		'foto_barang' => [
+			'uploaded' => '{field} Harus diupload',
+		],
+		'status' => [
+			'required' => '{field} Harus diisi',
+		],
+	];
+
+	public $barang_update = [
+		'id_kategori' => [
+			'rules' => 'required',
+		],
+		'nama_barang' => [
+			'rules' => 'required',
+		],
+		'status' => [
+			'rules' => 'required',
+		],
+	];
+
+	public $barang_update_errors = [
+		'id_kategori' => [
+			'required' => '{field} Harus diisi',
+		],
+		'nama_barang' => [
+			'required' => '{field} Harus diisi',
+		],
+		'status' => [
 			'required' => '{field} Harus diisi',
 		],
 	];

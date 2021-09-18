@@ -111,6 +111,11 @@ class Kategori_Admin extends BaseController
                $kategori->id_kategori = $id_kategori;
                $kategori->fill($data_kategori);
 
+               // Jikalau Ada gambar yang diganti
+               if ($this->request->getFile('foto_kategori')->isValid()) {
+                $post->foto_kategori = $this->request->getFile('foto_kategori');
+            }
+
                $kategori->updated_at = date("Y-m-d H:i:s");
 
                 $model->save($kategori);
