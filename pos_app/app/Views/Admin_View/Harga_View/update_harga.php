@@ -25,22 +25,15 @@
         'value' => $prize->range_2,
         'class' => 'form-control'
     ];
-    
-    $harga = [
-        'name' => 'harga',
-        'id' => 'harga',
+
+    $harga_asli = [
+        'name' => 'harga_asli',
+        'id' => 'harga_asli',
         'type' => 'number',
-        'value' => $prize->harga,
-        'class' => 'form-control',
+        'value' => $prize->harga_asli,
+        'class' => 'form-control'
     ];
     
-    $nama_harga = [
-        'name' => 'nama_harga',
-        'id' => 'nama_harga',
-        'value' => $prize->nama_harga,
-        'class' => 'form-control'
-    ];   
-
     $submit = [
         'name' => 'submit',
         'id' => 'submit',
@@ -91,15 +84,10 @@ $errors = $session->getFlashdata('errors');
                         <?= form_label("Harga Maksimal", "range_2") ?>
                         <?= form_input($range_2) ?>
                 </div>
-                
-                <div class="form-group mt-3">
-                        <?= form_label("Harga Barang", "harga") ?>
-                        <?= form_input($harga) ?>
-                </div>
 
                 <div class="form-group mt-3">
-                    <?= form_label("Tulisan", "nama_harga") ?>
-                    <?= form_input($nama_harga) ?>
+                        <?= form_label("Harga Asli", "harga_asli") ?>
+                        <?= form_input($harga_asli) ?>
                 </div>
 
                 <div class="d-flex justify-content-end mt-3">

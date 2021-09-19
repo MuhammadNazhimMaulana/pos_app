@@ -1,7 +1,10 @@
 <?= $this->extend('Template/Source/admin_looks') ?>
 <?= $this->section('content_admin') ?>
 <?php
-    
+
+    // Membuat angka menjadi tulisan
+    $format = new NumberFormatter("id", NumberFormatter::SPELLOUT);
+        
     $id_kategori = [
         'name' => 'id_kategori',
         'id' => 'id_kategori',
@@ -13,7 +16,7 @@
     $nama_barang = [
         'name' => 'nama_barang',
         'id' => 'nama_barang',
-        'value' => $barang->nama_barang,
+        'value' =>  $barang->nama_barang,
         'class' => 'form-control'
     ];
 
@@ -21,7 +24,15 @@
         'name' => 'harga_barang',
         'id' => 'harga_barang',
         'type' => 'number',
-        'value' => $barang->harga_barang,
+        'value' => $harga->harga_asli,
+        'class' => 'form-control'
+    ];
+
+    $harga_text = [
+        'name' => 'harga_text',
+        'id' => 'harga_text',
+        'type' => 'hidden',
+        'value' => $format->format($harga->harga_asli),
         'class' => 'form-control'
     ];
     
@@ -90,6 +101,11 @@ $errors = $session->getFlashdata('errors');
                 <div class="form-group mt-3">
                         <?= form_label("Harga Barang", "harga_barang") ?>
                         <?= form_input($harga_barang) ?>
+                </div>
+
+                <div class="form-group mt-3">
+                        <?= form_label("Harga Text", "harga_text") ?>
+                        <?= form_input($harga_text) ?>
                 </div>
                 
                 <!-- Preview Gambar -->

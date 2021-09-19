@@ -9,7 +9,7 @@
                 <div class="card-body">
                     <a href="<?= site_url('Admin/Harga_Admin/read') ?>" class="btn btn-primary mb-3">Kembali ke Daftar</a>
                     <h3 class="text-center mb-5"><?= $prize->nama_barang ?></h3>
-                    <p><?= $prize->harga ?> adalah statusnya</p>
+                    <p><?= $prize->range_1 ?> adalah harga minimalnya</p>
                 </div>
             </div>
         </div>

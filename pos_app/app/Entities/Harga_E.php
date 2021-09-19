@@ -6,11 +6,13 @@ use CodeIgniter\Entity\Entity;
 
 class Harga_E extends Entity
 {
-    // Set Harga
-    public function setHarga(int $harga){
+    
+     //Set Harga
+     public function setHargaAsli(int $harga_asli){
 
-        $this->attributes['harga'] = FLOOR(RAND()*($this->attributes['range_2'] - $this->attributes['range_1'] +1))+$this->attributes['range_1'];
+         $this->attributes['harga_asli'] = mt_rand($this->attributes['range_1'],  $this->attributes['range_2']);
 
-        return $this->attributes['harga'];
-    }
+         return $this->attributes['harga_asli'];
+     }
+    
 }

@@ -24,8 +24,7 @@
                                                             <th>Nama Barang</th>
                                                             <th>Harga Minimal</th>
                                                             <th>Harga Maksimal</th>
-                                                            <th>Harga Barang</th>
-                                                            <th>Tulisan</th>
+                                                            <th>Harga Jual</th>
                                                             <th>Action</th>
                                                         </tr>
                                                     </thead>
@@ -37,8 +36,7 @@
                                                             <td><?= $prizes->nama_barang ?></td>
                                                             <td><?= $prizes->range_1 ?></td>
                                                             <td><?= $prizes->range_2 ?></td>
-                                                            <td><?= $prizes->harga ?></td>
-                                                            <td><?= $prizes->nama_harga ?></td>
+                                                            <td><?= $prizes->harga_asli ?></td>
                                                             <td class="col-md-3">
                                                                 <a href="<?= site_url('Admin/Harga_Admin/view/' . $prizes->id_harga) ?>" class="status-tb-btn bg-cla">View</a>
                                                                 <a href="<?= site_url('Admin/Harga_Admin/update/' . $prizes->id_harga) ?>" class="status-tb-btn bg-cla">Update</a>

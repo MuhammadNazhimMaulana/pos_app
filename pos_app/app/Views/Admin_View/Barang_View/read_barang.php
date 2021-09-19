@@ -24,6 +24,7 @@
                                                             <th>Nama Kategori</th>
                                                             <th>Nama Barang</th>
                                                             <th>Harga Barang</th>
+                                                            <th>Harga Barang (Tulisan)</th>
                                                             <th>Gambar</th>
                                                             <th>Status</th>
                                                             <th>Action</th>
@@ -37,6 +38,7 @@
                                                             <td><?= $goods->nama_kategori ?></td>
                                                             <td><?= $goods->nama_barang ?></td>
                                                             <td><?= $goods->harga_barang ?></td>
+                                                            <td><?= $goods->harga_text ?></td>
                                                             <td><img src="<?= base_url ('upload/Foto Barang/' . $goods->foto_barang)?>" width="50"></td>
                                                             <td><?= $goods->status ?></td>
                                                             <td class="col-md-3">

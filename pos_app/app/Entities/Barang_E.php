@@ -3,6 +3,7 @@
 namespace App\Entities;
 
 use CodeIgniter\Entity\Entity;
+use App\Entities\Harga_E;
 
 class Barang_E extends Entity
 {
@@ -19,4 +20,5 @@ class Barang_E extends Entity
         $this->attributes['foto_barang'] = $fileName;
         return $this;
     }
+
 }

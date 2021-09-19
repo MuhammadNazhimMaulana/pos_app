@@ -4,6 +4,7 @@ namespace App\Controllers\Admin;
 
 use App\Controllers\BaseController;
 use App\Models\Barang_M;
+use App\Models\Harga_M;
 use App\Entities\Barang_E;
 use App\Models\Kategori_M;
 
@@ -19,6 +20,7 @@ class Barang_Admin extends BaseController
 
         // Load Session
         $this->session = session();
+
     }
 
     public function read()
@@ -64,7 +66,7 @@ class Barang_Admin extends BaseController
         }
 
         $data_barang = [
-            'title' => 'Kategori',
+            'title' => 'Barang',
             'daftar_kategori' => $list_kategori,
         ];
 
@@ -109,6 +111,10 @@ class Barang_Admin extends BaseController
 
        $barang = $model->join('tbl_kategori', 'tbl_kategori.id_kategori = tbl_barang.id_kategori')->where('tbl_barang.id_barang', $id_barang)->first();
 
+        // Dapatkan Satu data Harga Spesifik
+        $model_harga = new Harga_M();
+        $harga = $model_harga->join('tbl_barang', 'tbl_barang.id_barang = tbl_harga.id_barang')->where('tbl_harga.id_barang', $id_barang)->first();
+
         // Dapatkan Semua data
         $model_kategori = new Kategori_M();
         $kategori = $model_kategori->findAll();
@@ -122,6 +128,7 @@ class Barang_Admin extends BaseController
         $data_barang = [
             'barang' =>$barang,
             'daftar_kategori' => $list_kategori,
+            'harga' => $harga,
             'title' => 'Barang',
         ];
 
@@ -131,12 +138,13 @@ class Barang_Admin extends BaseController
             $errors = $this->validation->getErrors();
 
             if (!$errors) {
+
                $barang = new Barang_E();
                $barang->id_barang = $id_barang;
                $barang->fill($data);
 
                if ($this->request->getFile('foto_barang')->isValid()) {
-                $post->foto_barang = $this->request->getFile('foto_barang');
+                $barang->foto_barang = $this->request->getFile('foto_barang');
             }
 
                $barang->updated_at = date("Y-m-d H:i:s");

@@ -83,7 +83,9 @@ class Harga_Admin extends BaseController
 
                 // Fill untuk assign value data kecuali gambar
                $prize->fill($data);
-               $prize->harga = $this->request->getPost('harga');
+
+               //Input Harga
+               $prize->harga_asli = $this->request->getPost('harga_asli');
                $prize->created_at = date("Y-m-d H:i:s");
 
                 $model->save($prize);
@@ -134,7 +136,9 @@ class Harga_Admin extends BaseController
                $prize = new Harga_E();
                $prize->id_harga = $id_harga;
                $prize->fill($data_harga);
-               $prize->harga = $this->request->getPost('harga');
+
+                //Input Harga
+               $prize->harga_asli = $this->request->getPost('harga_asli');
 
                $prize->updated_at = date("Y-m-d H:i:s");
 
