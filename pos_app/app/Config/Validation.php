@@ -40,6 +40,66 @@ class Validation
     //--------------------------------------------------------------------
     // Rules
 
+	// Bagian Register
+
+	public $register = [
+		'nama_lengkapa' => [
+			'rules' => 'required',
+		],
+		'username' => [
+			'rules' => 'required|min_length[5]',
+		],
+		'alamat' => [
+			'rules' => 'required',
+		],
+		'password' => [
+			'rules' => 'required',
+		],
+		'password_confirm' => [
+			'rules' => 'required|matches[password]',
+		]
+	];
+
+	public $register_errors = [
+		'nama_lengkapa' => [
+			'required' => '{field} Harus diisi',
+		],
+		'username' => [
+			'required' => '{field} Harus diisi',
+			'min_length' => '{field} Minimal 5 karakter,'
+		],
+		'alamat' => [
+			'required' => '{field} Harus diisi',
+		],
+		'password' => [
+			'required' => '{field} Harus diisi',
+		],
+		'password_confirm' => [
+			'required' => '{field} Harus diisi',
+			'matches' => '{field} Tidak sama dengan Password',
+		]
+	];
+
+	// Bagian Login
+	public $login = [
+		'username' => [
+			'rules' => 'required|min_length[3]',
+		],
+		'password' => [
+			'rules' => 'required',
+		],
+	];
+
+	public $login_errors = [
+		'username' => [
+			'required' => '{field} Harus diisi',
+			'min_length' => '{field} Minimal 3 karakter,'
+		],
+		'password' => [
+			'required' => '{field} Harus diisi',
+		],
+	];
+
 	// Bagian Kategori
 	public $kategori = [
 		'nama_kategori' => [
@@ -138,6 +198,56 @@ class Validation
 			'required' => '{field} Harus diisi',
 		],
 	];
+
+	// Bagian Harga
+	public $harga = [
+		'id_barang' => [
+			'rules' => 'required',
+		],
+		'range_1' => [
+			'rules' => 'required',
+		],
+		'range_2' => [
+			'rules' => 'required',
+		],
+	];
+
+	public $harga_errors = [
+		'id_barang' => [
+			'required' => '{field} Harus diisi',
+		],
+		'range_1' => [
+			'required' => '{field} Harus diisi',
+		],
+		'range_2' => [
+			'required' => '{field} Harus diisi',
+		],
+	];
+
+	public $harga_update = [
+		'id_barang' => [
+			'rules' => 'required',
+		],
+		'range_1' => [
+			'rules' => 'required',
+		],
+		'range_2' => [
+			'rules' => 'required',
+		],
+	];
+
+	public $harga_update_errors = [
+		'id_barang' => [
+			'required' => '{field} Harus diisi',
+		],
+		'range_1' => [
+			'required' => '{field} Harus diisi',
+		],
+		'range_2' => [
+			'required' => '{field} Harus diisi',
+		],
+	];
+
 
     //--------------------------------------------------------------------
 }
