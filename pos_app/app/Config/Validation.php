@@ -247,7 +247,55 @@ class Validation
 			'required' => '{field} Harus diisi',
 		],
 	];
+	
+	// Bagian Stok
+	public $stok = [
+		'id_barang' => [
+			'rules' => 'required',
+		],
+		'stok_awal' => [
+			'rules' => 'required',
+		],
+		'stok' => [
+			'rules' => 'required',
+		],
+	];
 
+	public $stok_errors = [
+		'id_barang' => [
+			'required' => '{field} Harus diisi',
+		],
+		'stok_awal' => [
+			'required' => '{field} Harus diisi',
+		],
+		'stok' => [
+			'required' => '{field} Harus diisi',
+		],
+	];
 
+	public $stok_update = [
+		'id_barang' => [
+			'rules' => 'required',
+		],
+		'stok_awal' => [
+			'rules' => 'required',
+		],
+		'stok' => [
+			'rules' => 'required',
+		],
+	];
+
+	public $stok_update_errors = [
+		'id_barang' => [
+			'required' => '{field} Harus diisi',
+		],
+		'stok_awal' => [
+			'required' => '{field} Harus diisi',
+		],
+		'stok' => [
+			'required' => '{field} Harus diisi',
+		],
+	];
+	
     //--------------------------------------------------------------------
 }

@@ -26,11 +26,11 @@ class Transaksi_Admin extends BaseController
         $model = new Harga_M();
 
         $data = [
-            'data_harga' => $model->join('tbl_barang', 'tbl_barang.id_barang = tbl_harga.id_barang')->paginate(10, 'harga'),
+            'data_transaksi' => $model->join('tbl_item_transaksi', 'tbl_item_transaksi.id_transaksi = tbl_transaksi.id_transaksi')->join('tbl_barang', 'tbl_item_transaksi.id_barang = tbl_barang.id_barang')->paginate(10, 'harga'),
             'pager' => $model->pager,
         ];
 
-        return view('Admin_View/Harga_View/read_harga', $data);
+        return view('Admin_View/Transaksi_View/read_transaksi', $data);
     }
 
     public function view()
