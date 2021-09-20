@@ -39,7 +39,9 @@ class Authorisasi extends BaseController
                 // Dapatkan data yang telah di input
                 $user->fill($data);
                 $user->tingkat = 1;
+                $user->tgl_masuk = date("Y-m-d");
                 $user->created_at = date("Y-m-d H:i:s");
+                $user->foto_user = $this->request->getFile('foto_user');
                 $user->password = $this->request->getPost('password');
 
                 $model->save($user);
@@ -54,6 +56,51 @@ class Authorisasi extends BaseController
 
     public function login()
     {
+        if ($this->request->getPost()) {
+
+            // Validasi data yang di post
+            $data = $this->request->getPost();
+            $validate = $this->validation->run($data, 'login');
+
+            $errors = $this->validation->getErrors();
+
+            if ($errors) {
+                return view('login');
+            }
+
+            $model = new User_M();
+
+            $username = $this->request->getPost('username');
+            $password = $this->request->getPost('password');
+
+            $user = $model->where('username', $username)->first();
+
+            if ($user->password !== md5($password)) {
+
+                $this->session->setFlashdata('errors', ['Password Salah']);
+            } else {
+                $session_data = [
+                    'username' => $user->username,
+                    'nama' => $user->nama_lengkapa,
+                    'tingkat' => $user->tingkat,
+                    'isLoggedIn' => TRUE
+                ];
+
+                $this->session->set($session_data);
+
+                return redirect()->to(site_url('Admin/Dashboard_Admin/home'));
+            }
+            
+            $this->session->setFlashdata('errors', $errors);
+            
+        }
+
         return view('Authorisasi_View/login_view');
+    }
+
+    public function logout()
+    {
+        $this->session->destroy();
+        return redirect()->to(site_url('Auth/Authorisasi/login'));
     }
 }

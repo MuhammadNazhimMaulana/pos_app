@@ -1,5 +1,31 @@
 <?= $this->extend('Template/Source/auth_looks') ?>
 <?= $this->section('content_auth') ?>
+<?php
+
+$username = [
+    'name' => 'username',
+    'id' => 'username',
+    'value' => null,
+    'class' => 'form-control'
+];
+
+$password = [
+    'name' => 'password',
+    'id' => 'password',
+    'class' => 'form-control'
+];
+
+$submit = [
+    'name' => 'submit',
+    'id' => 'submit',
+    'value' => 'Login',
+    'class' => 'btn btn-danger w-50',
+    'type' => 'submit'
+];
+
+$session = session();
+$errors = $session->getFlashdata('errors');
+?>
 
    <!-- Awal Login -->
     <div class="container">
@@ -9,24 +35,26 @@
                     <p class="text-center  mb-4">POS Bonevian</p>
                     <img src="<?= base_url('img/Bonevian.png') ?>" class="w-25" />
                 </div>
-                <form action="#">
+
+                <?= form_open('Auth/Authorisasi/login') ?>
                     <div class="mb-4">
-                        <label for="username" class="form-label">Username</label>
-                        <input type="text" class="form-control" id="username" aria-describedby="user-help">
-                        <div id="user-help" class="form-text">Username Tidak akan disebar</div>
+                        <?= form_label("Username", "username") ?>
+                        <?= form_input($username) ?>
                     </div>
+
                     <div class="mb-4">
-                        <label for="password" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="password" aria-describedby="password-help">
+                        <?= form_label("Password", "password") ?>
+                        <?= form_password($password) ?>
                     </div>
-                    <div class="mb-4 form-check">
-                        <input type="checkbox" class="form-check-input" id="ingat">
-                        <label for="ingat" class="form-check-label">Remember Me</label>
-                    </div>
+
                     <div class="mb-4 d-flex justify-content-center">
-                        <button type="submit" class="btn btn-danger w-50">Login</button>
+
+                        <!-- Form submit terkait submit-->
+                        <?= form_submit($submit) ?>
                     </div>
-                </form>
+
+                <?= form_close() ?>
+                
                 <p class="mb-0 text-center">Belum Register? <a href="#" class="text-decoration-none">Daftar Disini</a></p>
             </div>
         </div>

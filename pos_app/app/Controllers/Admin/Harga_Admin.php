@@ -6,6 +6,7 @@ use App\Controllers\BaseController;
 use App\Models\Harga_M;
 use App\Entities\Harga_E;
 use App\Models\Barang_M;
+use App\Entities\Barang_E;
 
 class Harga_Admin extends BaseController
 {
@@ -80,8 +81,8 @@ class Harga_Admin extends BaseController
                 $model = new Harga_M();
 
                $prize = new Harga_E();
-
-                // Fill untuk assign value data kecuali gambar
+                
+               // Fill untuk assign value data kecuali gambar
                $prize->fill($data);
 
                //Input Harga
@@ -161,6 +162,6 @@ class Harga_Admin extends BaseController
 
         $delete = $model->delete($id_harga);
 
-        return redirect()->to(site_url('Admin/Harga_Admindmin/read'));
+        return redirect()->to(site_url('Admin/Harga_Admin/read'));
     }
 }
