@@ -166,3 +166,12 @@ table.table {
     rgb(206 125 25 / 95%) 100%
   );
 }
+
+/* Btn Transaksi */
+.di-btn-trans {
+  color: aliceblue;
+  padding: 0.3rem var(--mb-2);
+  font-weight: 500;
+  border-radius: 3px;
+  box-shadow: 0px 6px 19px 1px #06041d4a;
+}
