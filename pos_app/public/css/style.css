@@ -312,3 +312,8 @@ a.di-btn.purple-gradient.mt-5 {
 .data-table-section.table-responsive.tbl-kategori {
   padding: 50px;
 }
+
+/* Bagian Transaksi */
+input.di-btn-trans.purple-gradient.bersih {
+  border: none;
+}

@@ -1,5 +1,15 @@
 <?= $this->extend('Template/Source/admin_looks') ?>
 <?= $this->section('content_admin') ?>
+<?php 
+
+$submit = [
+    'name' => 'submit',
+    'value' => 'Input',
+    'type' =>'submit',
+    'class' => 'di-btn-trans purple-gradient bersih'
+  ];
+
+?>
 
 <section class="dashboard-top-sec">
     <div class="container-fluid">
@@ -19,9 +29,18 @@
                                         <div class="card-body">
                                             <h5 class="card-title">Input Kasir</h5>
                                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                            <p class="card-text"></p>
                                         </div>
                                         <div class="card-footer d-flex justify-content-end">
-                                            <a href="<?= site_url('Admin/Transaksi_Admin/insert') ?>" class="di-btn-trans purple-gradient">Testing</a>
+
+                                            <!-- Awal Input Transaksi -->
+                                            <?= form_open('Admin/Transaksi_Admin/insert') ?>
+                                                <div>
+                                                    <?= form_submit($submit) ?>
+                                                </div>
+                                            <?= form_close() ?>
+                                            <!-- Akhir Input Transaksi -->
+
                                         </div>
                                         </div>
 

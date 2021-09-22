@@ -5,9 +5,12 @@ namespace App\Controllers\Admin;
 use App\Controllers\BaseController;
 use App\Models\Transaksi_M;
 use App\Entities\Transaksi_E;
+use App\Models\Item_M;
+use App\Models\User_M;
+use App\Entities\Item_E;
 use App\Models\Barang_M;
 
-class Transaksi_Admin extends BaseController
+class Item_Admin extends BaseController
 {
     public function __construct()
     {
@@ -44,33 +47,22 @@ class Transaksi_Admin extends BaseController
         return view('Admin_View/Transaksi_View/read_transaksi', $data);
     }
 
-    public function insert(){
+    public function input(){
+        // Dapatkan Id dari segmen
+        $id_transaksi = $this->request->uri->getSegment(4);
 
-        $data = $this->request->getPost();
+        $model = new Transaksi_M();
 
-                // Simpan data
-                $model = new Transaksi_M();
+        $informasi = $model->join('tbl_users', 'tbl_users.username = tbl_transaksi.nama_kasir')->where('tbl_transaksi.id_transaksi', $id_transaksi)->first();
 
-               $transaction = new Transaksi_E();
-                
-               // Fill untuk assign value data kecuali gambar
-               $transaction->fill($data);
+        $data = [
+            'nama' => $this->session->get('username'),
+            'informasi' => $informasi
+        ];
 
-               //Input
-               $transaction->nama_kasir = $this->session->get('username');
-               $transaction->tanggal_transaksi = date("Y-m-d");
-               $transaction->waktu_transaksi = date("H:i:s");
-               $transaction->created_at = date("Y-m-d H:i:s");
-
-                $model->save($transaction);
-
-                $id_transaksi = $model->insertID();
-
-                $segments = ['Admin', 'Item_Admin', 'input', $id_transaksi];
-
-                // Akan redirect ke /Admin/Rak_A/view/$id_barang
-                return redirect()->to(site_url($segments));
-  
+            return view('Admin_View/Item_View/insert_item_transaksi', $data);     
     }
-    
+
+
+
 }

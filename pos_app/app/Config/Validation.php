@@ -297,5 +297,103 @@ class Validation
 		],
 	];
 	
+	// Bagian Transaksi
+	public $transaksi = [
+		'nama_kasir' => [
+			'rules' => 'required',
+		],
+		'tanggal_transaksi' => [
+			'rules' => 'required',
+		],
+		'waktu_transaksi' => [
+			'rules' => 'required',
+		],
+	];
+
+	public $transaksi_errors = [
+		'nama_kasir' => [
+			'required' => '{field} Harus diisi',
+		],
+		'tanggal_transaksi' => [
+			'required' => '{field} Harus diisi',
+		],
+		'waktu_transaksi' => [
+			'required' => '{field} Harus diisi',
+		],
+	];
+
+	public $transaksi_update = [
+		'nama_kasir' => [
+			'rules' => 'required',
+		],
+		'tanggal_transaksi' => [
+			'rules' => 'required',
+		],
+		'waktu_transaksi' => [
+			'rules' => 'required',
+		],
+	];
+
+	public $transaksi_update_errors = [
+		'nama_kasir' => [
+			'required' => '{field} Harus diisi',
+		],
+		'tanggal_transaksi' => [
+			'required' => '{field} Harus diisi',
+		],
+		'waktu_transaksi' => [
+			'required' => '{field} Harus diisi',
+		],
+	];
+	
+	// Bagian Item Transaksi
+	public $item = [
+		'id_transaksi' => [
+			'rules' => 'required',
+		],
+		'id_barang' => [
+			'rules' => 'required',
+		],
+		'harga_item' => [
+			'rules' => 'required',
+		],
+	];
+
+	public $item_errors = [
+		'id_transaksi' => [
+			'required' => '{field} Harus diisi',
+		],
+		'id_barang' => [
+			'required' => '{field} Harus diisi',
+		],
+		'harga_item' => [
+			'required' => '{field} Harus diisi',
+		],
+	];
+
+	public $item_update = [
+		'id_transaksi' => [
+			'rules' => 'required',
+		],
+		'id_barang' => [
+			'rules' => 'required',
+		],
+		'harga_item' => [
+			'rules' => 'required',
+		],
+	];
+
+	public $item_update_errors = [
+		'id_transaksi' => [
+			'required' => '{field} Harus diisi',
+		],
+		'id_barang' => [
+			'required' => '{field} Harus diisi',
+		],
+		'harga_item' => [
+			'required' => '{field} Harus diisi',
+		],
+	];
+	
     //--------------------------------------------------------------------
 }

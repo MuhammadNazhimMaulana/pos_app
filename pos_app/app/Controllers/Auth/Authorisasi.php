@@ -82,6 +82,7 @@ class Authorisasi extends BaseController
                 $session_data = [
                     'username' => $user->username,
                     'nama' => $user->nama_lengkapa,
+                    'id_user' => $user->id_user,
                     'tingkat' => $user->tingkat,
                     'isLoggedIn' => TRUE
                 ];
