@@ -55,9 +55,20 @@ class Item_Admin extends BaseController
 
         $informasi = $model->join('tbl_users', 'tbl_users.username = tbl_transaksi.nama_kasir')->where('tbl_transaksi.id_transaksi', $id_transaksi)->first();
 
+        // Dapatkan Semua data
+        $model_barang = new Barang_M();
+        $barang = $model_barang->findAll();
+        $list_barang = [];
+
+        // Buat looping
+        foreach ($barang as $goods) {
+            $list_barang[$goods->id_barang] = $goods->nama_barang;
+        }
+
         $data = [
             'nama' => $this->session->get('username'),
-            'informasi' => $informasi
+            'informasi' => $informasi,
+            'daftar_barang' => $list_barang,
         ];
 
             return view('Admin_View/Item_View/insert_item_transaksi', $data);     

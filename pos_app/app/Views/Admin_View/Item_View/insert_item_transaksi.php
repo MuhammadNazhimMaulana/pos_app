@@ -1,10 +1,10 @@
 <?= $this->extend('Template/Source/admin_looks') ?>
 <?= $this->section('content_admin')?>
 <?php
-    
-    $id_transaksi = [
-        'name' => 'id_transaksi',
-        'id' => 'id_transaksi',
+    // Awal Bagian Atas
+    $nomor_transaksi = [
+        'name' => 'nomor_transaksi',
+        'id' => 'nomor_transaksi',
         'readonly' => true,
         'value' => $informasi->id_transaksi,
         'class' => 'form-control'
@@ -17,7 +17,7 @@
         'value' => $informasi->nama_kasir,
         'class' => 'form-control'
     ];
-
+    
     $tanggal_transaksi = [
         'name' => 'tanggal_transaksi',
         'id' => 'tanggal_transaksi',
@@ -25,6 +25,43 @@
         'value' => $informasi->tanggal_transaksi,
         'class' => 'form-control'
     ];
+    // Akhir Bagian Atas
+
+    // Awal Input
+    $attributes = ['class' => 'inline-form'];
+
+    $id_transaksi = [
+        'name' => 'id_transaksi',
+        'id' => 'id_transaksi',
+        'type' => 'hidden',
+        'value' => $informasi->id_transaksi,
+        'class' => 'form-control'
+    ];
+    
+    $id_barang = [
+        'name' => 'id_barang',
+        'id' => 'id_barang',
+        'options' => $daftar_barang,
+        'class' => 'form-control'
+    ];
+    
+    $qty = [
+        'name' => 'qty',
+        'id' => 'qty',
+        'type' => 'number',
+        'value' => null,
+        'class' => 'form-control'
+    ];
+    
+    $harga_item = [
+        'name' => 'harga_item',
+        'id' => 'harga_item',
+        'type' => 'number',
+        'value' => null,
+        'class' => 'form-control'
+    ];
+
+    // Akhir input
     
     $submit = [
         'name' => 'submit',
@@ -54,25 +91,45 @@ $errors = $session->getFlashdata('errors');
                                         <div class="row">
                                                                                                                                    
                                             <div class="col-sm-4">
-                                                <?= form_label("Nomor Transaksi", "id_transaksi") ?>
-                                                <?= form_input($id_transaksi) ?>
+                                                <?= form_label("Nomor Transaksi", "nomor_transaksi") ?>
+                                                <?= form_input($nomor_transaksi) ?>
                                             </div>
                                             
                                             <div class="col-sm-4">
                                                 <?= form_label("Nama Kasir", "nama_kasir") ?>
                                                 <?= form_input($nama_kasir) ?>
                                             </div>
-
+                                            
                                             <div class="col-sm-4">
                                                 <?= form_label("Tanggal", "tanggal_transaksi") ?>
                                                 <?= form_input($tanggal_transaksi) ?>
                                             </div>
                                         </div>
+                                        
+                                        <!-- Awal Input Item -->
+                                        <?= form_open('Admin/Item_Admin/input', $attributes) ?>
+                                        
+                                        <div class="row mt-3">
 
-                                        <div class="row">
-                                            <!-- Awal Input Item -->
-                                            <?= form_open('Admin/Item_Admin/input') ?>
+                                            <div class="col-sm-4 input">
+                                                <?= form_label("Nama Barang", "id_barang") ?>
+                                                <?= form_dropdown($id_barang) ?>
+                                            </div>
                                             
+                                            <div class="col-sm-4 input">
+                                                <?= form_label("Jumlah Beli", "qty") ?>
+                                                <?= form_input($qty) ?>
+                                            </div>
+                                            
+                                            <div class="col-sm-4 input">
+                                                <?= form_label("Harga Barang", "harga_item") ?>
+                                                <?= form_input($harga_item) ?>
+                                            </div>
+                                            
+                                            <div class="col-sm-4">
+                                                <?= form_input($id_transaksi) ?>
+                                            </div>
+
                                             <div class="d-flex justify-content-end mt-3">
                                                 <!-- Form submit terkait submit-->
                                                 <?= form_submit($submit) ?>
