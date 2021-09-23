@@ -65,11 +65,45 @@ class Item_Admin extends BaseController
             $list_barang[$goods->id_barang] = $goods->nama_barang;
         }
 
+        // Mendapatkan data Item
+        $model_item = new Item_M();
+
+        $items = $model_item->join('tbl_barang', 'tbl_barang.id_barang = tbl_item_transaksi.id_barang')->join('tbl_transaksi', 'tbl_transaksi.id_transaksi = tbl_item_transaksi.id_transaksi')->where('tbl_item_transaksi.id_transaksi', $id_transaksi)->findAll();
+
         $data = [
             'nama' => $this->session->get('username'),
             'informasi' => $informasi,
             'daftar_barang' => $list_barang,
+            'item' => $items,
         ];
+
+        if ($this->request->getPost()) {
+            // Jikalau ada data di post
+            $data_item = $this->request->getPost();
+            $this->validation->run($data_item, 'item');
+            $errors = $this->validation->getErrors();
+
+            if (!$errors) {
+
+                // Simpan data
+                $model = new Item_M();
+
+               $item = new Item_E();
+                
+               // Fill untuk assign value data kecuali gambar
+               $item->fill($data_item);
+
+               //Input
+               $item->created_at = date("Y-m-d H:i:s");
+
+                $model->save($item);
+
+                // Akan redirect ke /Admin/Rak_A/view/$id_barang
+                return view('Admin_View/Item_View/insert_item_transaksi', $data);  
+            }
+
+            $this->session->setFlashdata('errors', $errors);
+        }
 
             return view('Admin_View/Item_View/insert_item_transaksi', $data);     
     }

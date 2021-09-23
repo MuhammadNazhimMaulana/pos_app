@@ -90,6 +90,22 @@ $errors = $session->getFlashdata('errors');
         <div class="row">
             <h1 class="text-center mb-4">Input Transaksi</h1>
 
+            <!-- Awal Jika Error -->
+            <?php if ($errors != null) : ?>
+                    <div class="alert alert-danger" role="alert">
+                        <h4 class="alert-heading">Terjadi Kesalahan</h4>
+                        <hr>
+                        <p class="mb-0">
+                            <?php foreach ($errors as $err) {
+                                echo $err . '<br>';
+                            }
+
+                            ?>
+                        </p>
+                    </div>
+                <?php endif ?>
+            <!-- Akhir Jika Error -->
+
             <!-- Ini untuk transaksi -->
                 <div class="col-lg-12">
                     <div class="bg-white top-chart-ear">
@@ -117,7 +133,7 @@ $errors = $session->getFlashdata('errors');
                                         </div>
                                         
                                         <!-- Awal Input Item -->
-                                        <?= form_open('Admin/Item_Admin/input', $attributes) ?>
+                                        <?= form_open('Admin/Item_Admin/input/'. $informasi->id_transaksi, $attributes) ?>
                                         
                                         <div class="row mt-3">
 
@@ -138,7 +154,7 @@ $errors = $session->getFlashdata('errors');
 
                                             <div class="col-sm-3 input">
                                                 <?= form_label("Harga Total", "total_item") ?>
-                                                <?= form_input($harga_item) ?>
+                                                <?= form_input($total_item) ?>
                                             </div>
                                             
                                             <div class="col-sm-3">
@@ -173,21 +189,24 @@ $errors = $session->getFlashdata('errors');
                             <th scope="col">Nama Barang</th>
                             <th scope="col">Jumlah Beli</th>
                             <th scope="col">Harga</th>
-                            <th scope="col">Action</th>
+                            <th scope="col">Total Harga</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                            <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                <td>@mdo</td>
-                                <td>Hapus</td>
+                            <?php $i = 1;?>
+                            <?php foreach ($item as $index => $shops) :?>
+                            <th scope="row"><?= $i++ ?></th>
+                                <td><?= $shops->id_transaksi ?></td>
+                                <td><?= $shops->nama_barang ?></td>
+                                <td><?= $shops->qty ?></td>
+                                <td><?= $shops->harga_item ?></td>
+                                <td><?= $shops->total_item ?></td>
                             </tr>
+                            <?php endforeach ?>
 
                             <tr>
-                                <td colspan="5">Total</td>
+                                <td colspan="5">Total Bayar</td>
                                 <td>Isi</td>
                             </tr>
                         </tbody>
@@ -233,6 +252,24 @@ $errors = $session->getFlashdata('errors');
                     $('#harga_item').val('');
                 }
             });
+
+            $('#qty').change(function(){
+
+                var qty = $('#qty').val();
+                var harga_item = $('#harga_item').val();
+                $('#total_item').val(0);
+
+                if(qty != null)
+                {                            
+                    $('#total_item').val(qty * harga_item);
+
+                }
+                else
+                {
+                    $('#total_item').val(0);
+                }
+            });
+
         });
     </script>
 <?= $this->endSection() ?>
