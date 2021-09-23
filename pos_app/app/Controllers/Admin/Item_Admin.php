@@ -84,7 +84,7 @@ class Item_Admin extends BaseController
             {
                 $model = new Barang_M();
 
-                $data = $model->join('tbl_barang', 'tbl_barang.id_barang = tbl_item_transaksi.id_barang')->where('id_barang', $this->request->getVar('id_barang'))->first();
+                $data = $model->where('id_barang', $this->request->getVar('id_barang'))->first();
 
                 echo json_encode($data);
             }

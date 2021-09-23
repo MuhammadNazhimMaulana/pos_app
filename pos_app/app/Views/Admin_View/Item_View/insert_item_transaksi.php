@@ -57,6 +57,16 @@
         'name' => 'harga_item',
         'id' => 'harga_item',
         'type' => 'number',
+        'readonly' => true,
+        'value' => null,
+        'class' => 'form-control'
+    ];
+
+    $total_item = [
+        'name' => 'total_item',
+        'id' => 'total_item',
+        'type' => 'number',
+        'readonly' => true,
         'value' => null,
         'class' => 'form-control'
     ];
@@ -111,22 +121,27 @@ $errors = $session->getFlashdata('errors');
                                         
                                         <div class="row mt-3">
 
-                                            <div class="col-sm-4 input">
+                                            <div class="col-sm-3 input">
                                                 <?= form_label("Nama Barang", "id_barang") ?>
                                                 <?= form_dropdown($id_barang) ?>
                                             </div>
                                             
-                                            <div class="col-sm-4 input">
+                                            <div class="col-sm-3 input">
                                                 <?= form_label("Jumlah Beli", "qty") ?>
                                                 <?= form_input($qty) ?>
                                             </div>
                                             
-                                            <div class="col-sm-4 input">
+                                            <div class="col-sm-3 input">
                                                 <?= form_label("Harga Barang", "harga_item") ?>
                                                 <?= form_input($harga_item) ?>
                                             </div>
+
+                                            <div class="col-sm-3 input">
+                                                <?= form_label("Harga Total", "total_item") ?>
+                                                <?= form_input($harga_item) ?>
+                                            </div>
                                             
-                                            <div class="col-sm-4">
+                                            <div class="col-sm-3">
                                                 <?= form_input($id_transaksi) ?>
                                             </div>
 
@@ -187,6 +202,8 @@ $errors = $session->getFlashdata('errors');
       
 <!-- Bagian Script -->
 <?= $this->section('script')?>
+
+<!-- Mendapatkan Harga Otomatis -->
     <script>
         $(document).ready(function(){
 
