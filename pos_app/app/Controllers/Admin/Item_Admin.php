@@ -58,7 +58,7 @@ class Item_Admin extends BaseController
         // Dapatkan Semua data
         $model_barang = new Barang_M();
         $barang = $model_barang->findAll();
-        $list_barang = [];
+        $list_barang = ['0' => 'Pilih Satu'];
 
         // Buat looping
         foreach ($barang as $goods) {
@@ -74,6 +74,22 @@ class Item_Admin extends BaseController
             return view('Admin_View/Item_View/insert_item_transaksi', $data);     
     }
 
+    public function action()
+    {
+        if($this->request->getVar('action'))
+        {
+            $action = $this->request->getVar('action');
+
+            if($action == 'get_harga')
+            {
+                $model = new Barang_M();
+
+                $data = $model->join('tbl_barang', 'tbl_barang.id_barang = tbl_item_transaksi.id_barang')->where('id_barang', $this->request->getVar('id_barang'))->first();
+
+                echo json_encode($data);
+            }
+        }
+    }
 
 
 }

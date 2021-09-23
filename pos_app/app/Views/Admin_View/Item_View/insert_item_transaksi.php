@@ -183,4 +183,39 @@ $errors = $session->getFlashdata('errors');
     </div>
 </section>
 
-            <?= $this->endSection() ?>
+<?= $this->endSection() ?>
+      
+<!-- Bagian Script -->
+<?= $this->section('script')?>
+    <script>
+        $(document).ready(function(){
+
+            $('#id_barang').change(function(){
+
+                var id_barang = $('#id_barang').val();
+
+                var action = 'get_harga';
+
+                if(id_barang != '')
+                {
+                    $.ajax({
+                        url:"<?= site_url('Admin/Item_Admin/action'); ?>",
+                        method:"POST",
+                        data:{id_barang:id_barang, action:action},
+                        dataType:"JSON",
+                        success:function(data)
+                        {
+                            
+                            $('#harga_item').val(data.harga_barang);
+                        }
+                    });
+
+                }
+                else
+                {
+                    $('#harga_item').val('');
+                }
+            });
+        });
+    </script>
+<?= $this->endSection() ?>

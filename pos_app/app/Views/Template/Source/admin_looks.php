@@ -54,6 +54,9 @@
     <!-- Link JS Chart -->
     <script src="<?= base_url('js/chart/apexcharts.min.js')?>"></script>
     <script src="<?= base_url('js/chart/chart.js')?>"></script>
+
+    <!-- Scirpt Extra -->
+    <?= $this->renderSection('script') ?>
     
 </body>
 </html>
