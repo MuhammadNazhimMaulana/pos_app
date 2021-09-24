@@ -132,5 +132,20 @@ class Item_Admin extends BaseController
         }
     }
 
+    public function update()
+    {
+
+    }
+
+    public function delete()
+    {
+        $id_item = $this->request->uri->getSegment(4);
+
+        $model = new Item_M();
+
+        $delete = $model->delete($id_item);
+
+        return redirect()->to(site_url('Admin/Item_Admin/input/'));
+    }
 
 }
