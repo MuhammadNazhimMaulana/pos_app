@@ -70,11 +70,15 @@ class Item_Admin extends BaseController
 
         $items = $model_item->join('tbl_barang', 'tbl_barang.id_barang = tbl_item_transaksi.id_barang')->join('tbl_transaksi', 'tbl_transaksi.id_transaksi = tbl_item_transaksi.id_transaksi')->where('tbl_item_transaksi.id_transaksi', $id_transaksi)->findAll();
 
+        // Mendapatkan Total Bayar
+        $total_bayar = $model_item->select('SUM(tbl_item_transaksi.total_item) AS jumlah')->get();
+
         $data = [
             'nama' => $this->session->get('username'),
             'informasi' => $informasi,
             'daftar_barang' => $list_barang,
             'item' => $items,
+            'total' => $total_bayar->getResult()
         ];
 
         if ($this->request->getPost()) {
@@ -98,8 +102,11 @@ class Item_Admin extends BaseController
 
                 $model->save($item);
 
+                $segments = ['Admin', 'Item_Admin', 'input', $id_transaksi];
+
                 // Akan redirect ke /Admin/Rak_A/view/$id_barang
-                return view('Admin_View/Item_View/insert_item_transaksi', $data);  
+                return redirect()->to(site_url($segments));
+
             }
 
             $this->session->setFlashdata('errors', $errors);

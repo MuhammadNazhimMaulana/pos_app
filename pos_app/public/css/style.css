@@ -317,3 +317,7 @@ a.di-btn.purple-gradient.mt-5 {
 input.di-btn-trans.purple-gradient.bersih {
   border: none;
 }
+
+section.dashboard-top-sec.trans {
+  min-height: 900px;
+}

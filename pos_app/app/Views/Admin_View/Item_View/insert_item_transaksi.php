@@ -81,11 +81,19 @@
         'type' => 'submit'
     ];
 
+    $pembayaran = [
+        'name' => 'pembayaran',
+        'id' => 'pembayaran',
+        'value' => 'Total',
+        'class' => 'btn btn-success',
+        'type' => 'submit'
+    ];
+
 $session = session();
 $errors = $session->getFlashdata('errors');
 ?>
 
-<section class="dashboard-top-sec">
+<section class="dashboard-top-sec trans">
     <div class="container-fluid">
         <div class="row">
             <h1 class="text-center mb-4">Input Transaksi</h1>
@@ -207,10 +215,20 @@ $errors = $session->getFlashdata('errors');
 
                             <tr>
                                 <td colspan="5">Total Bayar</td>
-                                <td>Isi</td>
+                                <td><?= $total[0]->jumlah ?></td>
                             </tr>
                         </tbody>
                     </table>
+
+                    <!-- Awal Penyesuaian Transaksi -->
+                    <?= form_open('Admin/Transaksi_Admin/update/') ?>
+                        <div class="d-flex justify-content-end mt-3">
+                            <!-- Form submit terkait submit-->
+                            <?= form_submit($pembayaran) ?>
+                        </div>
+                    <?= form_close() ?>
+                    <!-- Akhir Penyesuaian Transaksi -->
+
                 </div>
 
         </div>
@@ -218,6 +236,7 @@ $errors = $session->getFlashdata('errors');
 </section>
 
 <?= $this->endSection() ?>
+
       
 <!-- Bagian Script -->
 <?= $this->section('script')?>
