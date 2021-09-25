@@ -3,7 +3,7 @@
 <?php
     // Awal Bagian Atas
     $nomor_transaksi = [
-        'name' => 'nomor_transaksi',
+        'name' => 'id_transaksi',
         'id' => 'nomor_transaksi',
         'readonly' => true,
         'value' => $informasi->id_transaksi,
@@ -256,7 +256,7 @@ $errors = $session->getFlashdata('errors');
 
                 $total = [
                     'name' => 'qty',
-                    'id' => 'qty',
+                    'id' => 'total',
                     'type' => 'number',
                     'class' => 'form-control',
                     'value' => $shops->qty
@@ -264,7 +264,7 @@ $errors = $session->getFlashdata('errors');
 
                 $harga_satuan = [
                     'name' => 'harga_item',
-                    'id' => 'harga_item',
+                    'id' => 'harga_satuan',
                     'type' => 'number',
                     'class' => 'form-control',
                     'value' => $shops->harga_item,
@@ -273,10 +273,19 @@ $errors = $session->getFlashdata('errors');
 
                 $harga_total = [
                     'name' => 'total_item',
-                    'id' => 'total_item',
-                    'type' => 'number',
+                    'id' => 'harga_total',
+                    'type' => 'hidden',
                     'class' => 'form-control',
                     'value' => $shops->total_item,
+                    'readonly' => true
+                    ];
+
+                $transaksi = [
+                    'name' => 'id_transaksi',
+                    'id' => 'transaksi',
+                    'type' => 'hidden',
+                    'class' => 'form-control',
+                    'value' => $shops->id_transaksi,
                     'readonly' => true
                     ];
             ?>
@@ -293,26 +302,75 @@ $errors = $session->getFlashdata('errors');
                     <!-- Awal Input Item -->
                         <?= form_open('Admin/Item_Admin/update/'. $shops->id_item) ?>
                             <div class="row">
-                                <div class="col-sm-3 input">
+                                <div class="col-sm-4 input">
                                     <?= form_label("Nama Barang", "nomor_barang") ?>
                                     <?= form_dropdown($nomor_barang) ?>
                                 </div>
                                                     
-                                <div class="col-sm-3 input">
+                                <div class="col-sm-4 input">
                                     <?= form_label("Jumlah Beli", "total") ?>
                                     <?= form_input($total) ?>
                                 </div>
-
-                                <div class="col-sm-3 input">
+                                
+                                <div class="col-sm-4 input">
                                     <?= form_label("Harga Barang", "harga_satuan") ?>
                                     <?= form_input($harga_satuan) ?>
                                 </div>
-
-                                <div class="col-sm-3 input">
-                                    <?= form_label("Harga Total", "harga_total") ?>
-                                    <?= form_input($harga_total) ?>
+                                
+                                <div class="col-sm-4 input">
+                                    <?= form_input($transaksi) ?>
                                 </div>
+                                
+                            </div>
 
+                        </div>
+                        <div class="modal-footer mt-3">
+                            <div class="d-flex justify-content-end mt-3">
+                                <!-- Form submit terkait submit-->
+                                <?= form_submit($submit) ?>
+                            </div>
+          
+                    <?= form_close() ?>
+                            
+              </div>
+            </div>
+          </div>
+        </div>
+      <?php endforeach ?>
+<!-- Akhir Modal Update -->
+
+<!-- Awal Modal Update -->
+      <!-- Modal -->
+      <?php foreach ($item as $index => $shops) :?>
+        <!-- Mendapatkan Nilai dari yang dipilih -->
+            <?php
+                $transaction = [
+                    'name' => 'id_transaksi',
+                    'id' => 'transaction',
+                    'type' => 'hidden',
+                    'class' => 'form-control',
+                    'value' => $shops->id_transaksi,
+                    'readonly' => true
+                    ];
+            ?>
+        
+        <div class="modal fade" id="modalDelete<?= $shops->id_item ?>" tabindex="-1" data-bs-backdrop="static">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Konfirmasi Penghapusan</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                  
+                    <!-- Awal Input Item -->
+                        <?= form_open('Admin/Item_Admin/delete/'. $shops->id_item) ?>
+                            <div class="row">
+
+                                <div class="col-sm-4 input">
+                                    <?= form_input($transaksi) ?>
+                                </div>
+                                
                             </div>
 
                         </div>

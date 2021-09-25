@@ -133,19 +133,52 @@ class Item_Admin extends BaseController
     }
 
     public function update()
-    {
+    {        
+        $id_item = $this->request->uri->getSegment(4);
 
+        $data_item = $this->request->getPost();
+
+            // Simpan data
+            $model = new Item_M();
+
+            $items = new Item_E();
+            $items->id_item = $id_item;
+            $items->fill($data_item);
+
+            //Input Total Harga
+            $items->total_item = $items->qty * $items->harga_item;
+            $items->updated_at = date("Y-m-d H:i:s");
+
+            $model->save($items);
+
+            $id_transaksi = $items->id_transaksi;
+            
+            $segments = ['Admin', 'Item_Admin', 'input', $id_transaksi];
+
+            return redirect()->to(site_url($segments));
     }
 
     public function delete()
     {
         $id_item = $this->request->uri->getSegment(4);
 
+        $data_item = $this->request->getPost();
+
         $model = new Item_M();
 
+        $items = new Item_E();
+        $items->id_item = $id_item;
+        $items->fill($data_item);
+
+        // Hapus Data
         $delete = $model->delete($id_item);
 
-        return redirect()->to(site_url('Admin/Item_Admin/input/'));
+        // Id_transaksi agar kembali ke input
+        $id_transaksi = $items->id_transaksi;
+        
+        $segments = ['Admin', 'Item_Admin', 'input', $id_transaksi];
+
+        return redirect()->to(site_url($segments));
     }
 
 }
