@@ -98,7 +98,18 @@ class Transaksi_Admin extends BaseController
 
     public function pembayaran()
     {
-        return view('Admin_View/Transaksi_View/pembayaran_transaksi');
+        $id_transaksi = $this->request->uri->getSegment(4);
+
+        $model = new Transaksi_M();
+
+        // Mendapatkan data Transaksi
+        $transaksi = $model->join('tbl_users', 'tbl_users.username = tbl_transaksi.nama_kasir')->where('tbl_transaksi.id_transaksi', $id_transaksi)->first();
+
+        $data = [
+            'transaksi' => $transaksi,
+        ];
+        
+        return view('Admin_View/Transaksi_View/pembayaran_transaksi', $data);
     }
     
 }
