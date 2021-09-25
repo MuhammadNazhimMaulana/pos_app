@@ -81,6 +81,53 @@
         'type' => 'submit'
     ];
 
+// Transaksi
+
+    $nomor_bayar = [
+        'name' => 'id_transaksi',
+        'id' => 'nomor_bayar',
+        'type' => 'hidden',
+        'readonly' => true,
+        'value' => $informasi->id_transaksi,
+        'class' => 'form-control'
+    ];
+
+    $kasir = [
+        'name' => 'nama_kasir',
+        'id' => 'kasir',
+        'type' => 'hidden',
+        'readonly' => true,
+        'value' => $informasi->nama_kasir,
+        'class' => 'form-control'
+    ];
+
+    $tanggal = [
+        'name' => 'tanggal_transaksi',
+        'id' => 'tanggal',
+        'type' => 'hidden',
+        'readonly' => true,
+        'value' => $informasi->tanggal_transaksi,
+        'class' => 'form-control'
+    ];
+
+    $waktu = [
+        'name' => 'waktu_transaksi',
+        'id' => 'waktu',
+        'type' => 'hidden',
+        'readonly' => true,
+        'value' => $informasi->waktu_transaksi,
+        'class' => 'form-control'
+    ];
+
+    $total_transaksi = [
+        'name' => 'total_transaksi',
+        'id' => 'total_transaksi',
+        'type' => 'hidden',
+        'readonly' => true,
+        'value' => $total[0]->jumlah,
+        'class' => 'form-control'
+    ];
+
     $pembayaran = [
         'name' => 'pembayaran',
         'id' => 'pembayaran',
@@ -226,7 +273,24 @@ $errors = $session->getFlashdata('errors');
                     </table>
 
                     <!-- Awal Penyesuaian Transaksi -->
-                    <?= form_open('Admin/Transaksi_Admin/update/') ?>
+                    <?= form_open('Admin/Transaksi_Admin/check_out/' . $informasi->id_transaksi) ?>
+                                            
+                        <div class="col-sm-4">
+                            <?= form_input($kasir) ?>
+                        </div>
+                                            
+                        <div class="col-sm-4">
+                            <?= form_input($tanggal) ?>
+                        </div>
+
+                        <div class="col-sm-4">
+                            <?= form_input($waktu) ?>
+                        </div>
+
+                        <div class="col-sm-4">
+                            <?= form_input($total_transaksi) ?>
+                        </div>
+
                         <div class="d-flex justify-content-end mt-3">
                             <!-- Form submit terkait submit-->
                             <?= form_submit($pembayaran) ?>
