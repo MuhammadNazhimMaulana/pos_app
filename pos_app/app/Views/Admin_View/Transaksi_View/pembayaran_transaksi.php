@@ -22,6 +22,7 @@
         'name' => 'waktu_transaksi',
         'id' => 'waktu_transaksi',
         'readonly' => true,
+        'type' => 'hidden',
         'value' => $transaksi->waktu_transaksi,
         'class' => 'form-control'
     ];
@@ -70,6 +71,14 @@
         'value' => null,
         'class' => 'form-control'
     ];
+
+    $total_bayar = [
+        'name' => 'total_bayar',
+        'id' => 'total_bayar',
+        'type' => 'number',
+        'value' => null,
+        'class' => 'form-control'
+    ];
     
     $submit = [
         'name' => 'submit',
@@ -93,6 +102,23 @@ $errors = $session->getFlashdata('errors');
                         <section>
                             <div class="sm-chart-sec my-5">
                                 <div class="container-fluid">
+
+                                    <!-- Awal Jika Error -->
+                                    <?php if ($errors != null) : ?>
+                                            <div class="alert alert-danger" role="alert">
+                                                <h4 class="alert-heading">Terjadi Kesalahan</h4>
+                                                <hr>
+                                                <p class="mb-0">
+                                                    <?php foreach ($errors as $err) {
+                                                        echo $err . '<br>';
+                                                    }
+
+                                                    ?>
+                                                </p>
+                                            </div>
+                                        <?php endif ?>
+                                    <!-- Akhir Jika Error -->
+
                                     <!-- Awal Pembayaran -->
                                     <?= form_open('Admin/Transaksi_Admin/pembayaran/'. $transaksi->id_transaksi) ?>
                                         <div class="row">
@@ -124,8 +150,13 @@ $errors = $session->getFlashdata('errors');
                                             </div>
                                         </div>
                                         <div class="row mt-4 kembalian">
-                                            <div class="col-sm-4"></div>
-                                            <div class="col-sm-4"></div>
+                                            <div class="col-sm-4 mt-3">
+                                                <?= form_label("Pembayaran", "total_bayar") ?>
+                                                <?= form_input($total_bayar) ?>
+                                            </div>
+                                            <div class="col-sm-4 mt-3">
+                                                <?= form_input($waktu_transaksi) ?>
+                                            </div>
                                             <div class="col-sm-4 mt-3">
                                                 <?= form_label("Kembalian", "kembalian") ?>
                                                 <?= form_input($kembalian) ?>
@@ -150,4 +181,46 @@ $errors = $session->getFlashdata('errors');
     </div>
 </section>
 
+<?= $this->endSection() ?>
+      
+<!-- Bagian Script -->
+<?= $this->section('script')?>
+
+<!-- Mendapatkan Harga Otomatis -->
+    <script>
+        $(document).ready(function(){
+
+                // Menghitung Nilai yang harus dibayar
+                var total_transaksi = $('#total_transaksi').val();
+
+                if(total_transaksi != null)
+                {                            
+                    $('#ppn').val(Math.round(total_transaksi * 0.1));
+
+                    $('#total_ppn').val(parseInt(total_transaksi) + Math.round(total_transaksi * 0.1));
+
+                }
+                else
+                {
+                    $('#total_transaksi').val(0);
+                }
+
+                // Menghitung Hasil jumlah yang dibayar
+                $('#total_bayar').change(function(){
+
+                var total_bayar = $('#total_bayar').val();
+                var total_ppn = $('#total_ppn').val();
+
+                if(total_bayar != null)
+                {                            
+                    $('#kembalian').val(total_bayar - total_ppn);
+
+                }
+                else
+                {
+                    $('#kembalian').val(0);
+                }
+                });
+        });
+    </script>
 <?= $this->endSection() ?>

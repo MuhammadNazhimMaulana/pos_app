@@ -8,36 +8,20 @@
                             <a href="#"><i class="fas fa-home"></i>Home</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fas fa-list"></i>Kategori</a>
+                            <a href="#"><i class="fas fa-list"></i>Profile</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fas fa-chart-bar"></i>Charts</a>
+                            <a href="#"><i class="fas fa-chart-bar"></i>Barang</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fas fa-table"></i>Tables</a>
+                            <a href="#"><i class="fas fa-table"></i>Harga</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fas fa-bell"></i>Notifications</a>
+                            <a href="#"><i class="fas fa-bell"></i>Stok</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fas fa-icons"></i>Icons</a>
+                            <a href="#"><i class="fas fa-icons"></i>Transaksi</a>
                         </li>
-                        <li>
-                        <!-- Awal Bagian Sub-menu -->
-                        <li class="sub-menu">
-                            <a href="#"><i class="fas fa-cogs"></i>Settings
-                                <div class="fa fa-caret-down right"></div>
-                            </a>
-                            <ul class="left-menu-dp">
-                                <li><a href=""><i class="fa fa-user-circle"></i>Akun</a></li>
-                                <li><a href=""><i class="fa fa-id-card"></i>Profil</a></li>
-                                <li><a href=""><i class="fa fa-fingerprint"></i>Keamanan &amp; Privasi</a></li>
-                                <li><a href=""><i class="fa fa-key"></i>Password</a></li>
-                                <li><a href=""><i class="fa fa-bell"></i>Notifikasi</a></li>
-                            </ul>
-                        </li>
-                        <!-- Akhir Bagian Sub-menu -->
-
                         <li>
                             <a href="#"><i class="fas fa-sign-out-alt"></i>Logout</a>
                         </li>

@@ -108,8 +108,37 @@ class Transaksi_Admin extends BaseController
         $data = [
             'transaksi' => $transaksi,
         ];
-        
+
+            if ($this->request->getPost()) {
+                $data_transaksi = $this->request->getPost();
+                $this->validation->run($data_transaksi, 'transaksi_update');
+                $errors = $this->validation->getErrors();
+
+                if (!$errors) {
+                    $transaksi = new Transaksi_E();
+                    $transaksi->id_transaksi = $id_transaksi;
+                    $transaksi->fill($data_transaksi);
+
+                    //Ubah Keterangan
+                    $transaksi->keterangan = 'Lunas';
+                    $transaksi->updated_at = date("Y-m-d H:i:s");
+
+                    $model->save($transaksi);
+
+                    $segments = ['Admin', 'Transaksi_Admin', 'view', $id_transaksi];
+
+                    return redirect()->to(site_url($segments));
+                }
+
+                $this->session->setFlashdata('errors', $errors);
+            }
+
         return view('Admin_View/Transaksi_View/pembayaran_transaksi', $data);
+    }
+
+    public function view()
+    {
+        return view('Admin_View/Transaksi_View/view_transaksi'); 
     }
     
 }
