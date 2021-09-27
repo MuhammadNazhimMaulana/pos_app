@@ -4,6 +4,7 @@ namespace App\Controllers\Admin;
 
 use App\Controllers\BaseController;
 use App\Models\Transaksi_M;
+use App\Models\Item_M;
 use App\Entities\Transaksi_E;
 use App\Models\Barang_M;
 
@@ -138,7 +139,29 @@ class Transaksi_Admin extends BaseController
 
     public function view()
     {
-        return view('Admin_View/Transaksi_View/view_transaksi'); 
+        // Data Transaksi
+        $id_transaksi = $this->request->uri->getSegment(4);
+
+        $model = new Transaksi_M();
+
+        // Mendapatkan data Transaksi
+        $transaksi = $model->join('tbl_users', 'tbl_users.username = tbl_transaksi.nama_kasir')->where('tbl_transaksi.id_transaksi', $id_transaksi)->first();
+
+        // Mendapatkan data Item
+        $model_item = new Item_M();
+
+        $items = $model_item->join('tbl_barang', 'tbl_barang.id_barang = tbl_item_transaksi.id_barang')->join('tbl_transaksi', 'tbl_transaksi.id_transaksi = tbl_item_transaksi.id_transaksi')->where('tbl_item_transaksi.id_transaksi', $id_transaksi)->findAll();
+
+        // Total Pembayaran
+        $total_bayar = $model_item->select('SUM(tbl_item_transaksi.total_item) AS jumlah')->get();
+
+        $data = [
+            'item' => $items,
+            'transaksi' => $transaksi,
+            'total' => $total_bayar->getResult(),
+        ];
+
+        return view('Admin_View/Transaksi_View/view_transaksi', $data); 
     }
     
 }
