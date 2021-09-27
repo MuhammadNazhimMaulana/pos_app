@@ -40,7 +40,8 @@
                         <section>
                             <div class="sm-chart-sec my-5">
                                 <div class="container-fluid">
-                                    <div class="col-lg-12 mt-5">
+                                    <a href="<?= site_url('Admin/Transaksi_Admin/home') ?>" class="status-tb-btn bg-cla">Kembali Ke Home</a>
+                                    <div class="col-lg-12 mt-3">
                                         <table class="table">
                                             <thead>
                                                 <tr>

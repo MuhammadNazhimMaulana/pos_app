@@ -2,6 +2,7 @@
 
 namespace App\Controllers\Admin;
 
+use TCPDF;
 use App\Controllers\BaseController;
 use App\Models\Transaksi_M;
 use App\Models\Item_M;
@@ -14,6 +15,9 @@ class Transaksi_Admin extends BaseController
     {
         // Memanggil Helper
         helper('form');
+
+        // Memanggil Helper Angka
+        helper('number');
 
         // Load Validasi
         $this->validation = \Config\Services::validation();
@@ -162,6 +166,56 @@ class Transaksi_Admin extends BaseController
         ];
 
         return view('Admin_View/Transaksi_View/view_transaksi', $data); 
+    }
+
+    public function pdf()
+    {
+        // Data Transaksi
+        $id_transaksi = $this->request->uri->getSegment(4);
+
+        $model = new Transaksi_M();
+
+        // Mendapatkan data Transaksi
+        $transaksi = $model->join('tbl_users', 'tbl_users.username = tbl_transaksi.nama_kasir')->where('tbl_transaksi.id_transaksi', $id_transaksi)->first();
+
+        // Mendapatkan data Item
+        $model_item = new Item_M();
+
+        $items = $model_item->join('tbl_barang', 'tbl_barang.id_barang = tbl_item_transaksi.id_barang')->join('tbl_transaksi', 'tbl_transaksi.id_transaksi = tbl_item_transaksi.id_transaksi')->where('tbl_item_transaksi.id_transaksi', $id_transaksi)->findAll();
+
+        // Total Pembayaran
+        $total_bayar = $model_item->select('SUM(tbl_item_transaksi.total_item) AS jumlah')->get();
+
+        $data = [
+            'item' => $items,
+            'transaksi' => $transaksi,
+            'total' => $total_bayar->getResult(),
+        ];
+
+        $html =  view('Admin_View/Transaksi_View/view_transaksi_pdf', $data);
+
+        // Skrip menggunakan TCPDF
+        $pdf = new TCPDF('L', PDF_UNIT, 'A5', true, 'UTF-8', false);
+
+        $pdf->SetCreator(PDF_CREATOR);
+        $pdf->SetAuthor('Muhammad Nazhim Maulana');
+        $pdf->SetTitle('Invoice Pembelian Barang');
+        $pdf->SetSubject('Invoice');
+
+        // Menghilangkan garis header dan footer
+        $pdf->setPrintHeader(false);
+        $pdf->setPrintFooter(false);
+
+        $pdf->addPage();
+
+        // Output HTML
+        $pdf->writeHTML($html, true, false, true, false, '');
+		
+        // Penting agar browser menampilkan pdf
+        $this->response->setContentType('application/pdf');
+
+        // Membuat dokumen pdf (F untuk write file di folder yang dipilih)
+        $pdf->Output('Invoice_Transaksi.pdf', 'I');
     }
     
 }

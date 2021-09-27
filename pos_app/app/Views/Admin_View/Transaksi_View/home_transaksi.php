@@ -45,13 +45,13 @@ $submit = [
                                         </div>
 
                                         <div class="card text-dark bg-light mb-3" style="max-width: 18rem;">
-                                        <div class="card-header">Data</div>
+                                        <div class="card-header">Daftar Transaksi</div>
                                         <div class="card-body">
-                                            <h5 class="card-title">Data Transaksi</h5>
+                                            <h5 class="card-title">Data Daftar Transaksi</h5>
                                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                                         </div>
                                         <div class="card-footer d-flex justify-content-end">
-                                            <a href="" class="di-btn-trans purple-gradient">Testing</a>
+                                            <a href="<?= site_url('Admin/Transaksi_Admin/read') ?>" class="di-btn-trans purple-gradient">Seluruh Data</a>
                                         </div>
                                         </div>
                                         <!-- Akhir Card -->

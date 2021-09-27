@@ -20,6 +20,19 @@ class Dashboard_Admin extends BaseController
 
     public function home()
     {
-        return view('Admin_View/dashboard_view');
+        $data = [
+            'title' => 'dashboard',
+        ];
+
+        return view('Admin_View/User_View/dashboard_view', $data);
+    }
+
+    public function profile()
+    {
+        $data = [
+            'title' => 'profile',
+        ];
+
+        return view('Admin_View/User_View/profile_view', $data);
     }
 }

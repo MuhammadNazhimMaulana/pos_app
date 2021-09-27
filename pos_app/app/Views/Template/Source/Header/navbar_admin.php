@@ -85,10 +85,8 @@
                             </div>
 
                             <div class="dp-main-menu">
-                                <a href="" class="dropdown-item"><span class="fas fa-user"></span>Profile</a>
-                                <a href="" class="dropdown-item"><span class="fas fa-inbox"></span>Kotak Masuk</a>
-                                <a href="" class="dropdown-item"><span class="fas fa-lock-open"></span>Layar</a>
-                                <a href="" class="dropdown-item"><span class="fas fa-outdent"></span>Log Out</a>
+                                <a href="<?= site_url('Admin/Dashboard_Admin/profile') ?>" class="dropdown-item"><span class="fas fa-user"></span>Profile</a>
+                                <a href="<?= site_url('Auth/Authorisasi/logout') ?>" class="dropdown-item"><span class="fas fa-outdent"></span>Log Out</a>
                             </div>
 
                         </div>
