@@ -29,6 +29,7 @@ class Stok_Admin extends BaseController
         $data = [
             'data_stok' => $model->join('tbl_barang', 'tbl_barang.id_barang = tbl_stok.id_barang')->paginate(10, 'stok'),
             'pager' => $model->pager,
+            'title' => 'stok',
         ];
 
         return view('Admin_View/Stok_View/read_stok', $data);
@@ -46,7 +47,8 @@ class Stok_Admin extends BaseController
         // Data yang akan dikirim ke view specific
         $data = [
             "stock" =>$stok,
-            "title" => 'Stok'
+            "title" => 'Stok',
+            'title' => 'stok',
         ];
 
         return view('Admin_View/Stok_View/view_specific_stok', $data);
@@ -67,6 +69,7 @@ class Stok_Admin extends BaseController
         $data_stok = [
             "title" => 'Stok',
             'daftar_barang' => $list_barang,
+            'title' => 'stok',
         ];
 
         if ($this->request->getPost()) {
@@ -92,7 +95,7 @@ class Stok_Admin extends BaseController
 
                 $id_stok = $model->insertID();
 
-                $segments = ['Admin', 'Stok_Admin', 'view', $id_stok];
+                $segments = ['admin', 'stocks', 'view', $id_stok];
 
                 // Akan redirect ke /Admin/Rak_A/view/$id_barang
                 return redirect()->to(site_url($segments));
@@ -125,6 +128,7 @@ class Stok_Admin extends BaseController
             'stock' =>$stok,
             "title" => 'Stok',
             'daftar_barang' => $list_barang,
+            'title' => 'stok',
         ];
 
         if ($this->request->getPost()) {
@@ -142,7 +146,7 @@ class Stok_Admin extends BaseController
 
                 $model->save($stock);
 
-                $segments = ['Admin', 'Stok_Admin', 'view', $id_stok];
+                $segments = ['admin', 'stocks', 'view', $id_stok];
 
                 return redirect()->to(site_url($segments));
             }
@@ -159,6 +163,6 @@ class Stok_Admin extends BaseController
 
         $delete = $model->delete($id_stok);
 
-        return redirect()->to(site_url('Admin/Stok_Admin/read'));
+        return redirect()->to(site_url('admin/stocks'));
     }
 }

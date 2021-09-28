@@ -31,7 +31,8 @@ class Transaksi_Admin extends BaseController
         $model = new Transaksi_M();
 
         $data = [
-            'data_transaksi' => $model
+            'data_transaksi' => $model,
+            'title' => 'transaksi',
         ];
 
         return view('Admin_View/Transaksi_View/home_transaksi', $data);  
@@ -44,6 +45,7 @@ class Transaksi_Admin extends BaseController
         $data = [
             'data_transaksi' => $model->join('tbl_users', 'tbl_users.username = tbl_transaksi.nama_kasir')->paginate(10, 'transaksi'),
             'pager' => $model->pager,
+            'title' => 'transaksi',
         ];
 
         return view('Admin_View/Transaksi_View/read_transaksi', $data);
@@ -71,7 +73,7 @@ class Transaksi_Admin extends BaseController
 
                 $id_transaksi = $model->insertID();
 
-                $segments = ['Admin', 'Item_Admin', 'input', $id_transaksi];
+                $segments = ['admin', 'items', 'input', $id_transaksi];
 
                 // Akan redirect ke /Admin/Rak_A/view/$id_barang
                 return redirect()->to(site_url($segments));
@@ -96,7 +98,7 @@ class Transaksi_Admin extends BaseController
 
         $model->save($transactions);
 
-        $segments = ['Admin', 'Transaksi_Admin', 'pembayaran', $id_transaksi];
+        $segments = ['admin', 'transactions', 'payment', $id_transaksi];
 
         return redirect()->to(site_url($segments));
     }
@@ -112,6 +114,7 @@ class Transaksi_Admin extends BaseController
 
         $data = [
             'transaksi' => $transaksi,
+            'title' => 'transaksi',
         ];
 
             if ($this->request->getPost()) {
@@ -130,7 +133,7 @@ class Transaksi_Admin extends BaseController
 
                     $model->save($transaksi);
 
-                    $segments = ['Admin', 'Transaksi_Admin', 'view', $id_transaksi];
+                    $segments = ['admin', 'transactions', 'view', $id_transaksi];
 
                     return redirect()->to(site_url($segments));
                 }
@@ -157,12 +160,13 @@ class Transaksi_Admin extends BaseController
         $items = $model_item->join('tbl_barang', 'tbl_barang.id_barang = tbl_item_transaksi.id_barang')->join('tbl_transaksi', 'tbl_transaksi.id_transaksi = tbl_item_transaksi.id_transaksi')->where('tbl_item_transaksi.id_transaksi', $id_transaksi)->findAll();
 
         // Total Pembayaran
-        $total_bayar = $model_item->select('SUM(tbl_item_transaksi.total_item) AS jumlah')->get();
+        $total_bayar = $model_item->select('SUM(tbl_item_transaksi.total_item) AS jumlah')->where('tbl_item_transaksi.id_transaksi', $id_transaksi)->get();
 
         $data = [
             'item' => $items,
             'transaksi' => $transaksi,
             'total' => $total_bayar->getResult(),
+            'title' => 'transaksi',
         ];
 
         return view('Admin_View/Transaksi_View/view_transaksi', $data); 

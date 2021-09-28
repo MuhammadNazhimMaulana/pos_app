@@ -7,7 +7,7 @@
             <div class="card">
                 <h2 class="card-header text-center">Data Kategori</h2>
                 <div class="card-body">
-                    <a href="<?= site_url('Admin/Kategori_Admin/read') ?>" class="btn btn-primary mb-3">Kembali ke Daftar</a>
+                    <a href="<?= base_url('admin/categories') ?>" class="btn btn-primary mb-3">Kembali ke Daftar</a>
                     <h3 class="text-center mb-5"><?= $kategori->nama_kategori ?></h3>
                     <p><?= $kategori->keterangan ?> adalah keterangannya</p>
                 </div>

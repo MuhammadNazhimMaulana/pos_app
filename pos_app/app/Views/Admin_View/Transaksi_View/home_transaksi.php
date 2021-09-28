@@ -34,7 +34,7 @@ $submit = [
                                         <div class="card-footer d-flex justify-content-end">
 
                                             <!-- Awal Input Transaksi -->
-                                            <?= form_open('Admin/Transaksi_Admin/insert') ?>
+                                            <?= form_open('admin/transactions/insert') ?>
                                                 <div>
                                                     <?= form_submit($submit) ?>
                                                 </div>
@@ -51,7 +51,7 @@ $submit = [
                                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                                         </div>
                                         <div class="card-footer d-flex justify-content-end">
-                                            <a href="<?= site_url('Admin/Transaksi_Admin/read') ?>" class="di-btn-trans purple-gradient">Seluruh Data</a>
+                                            <a href="<?= base_url('admin/transactions') ?>" class="di-btn-trans purple-gradient">Seluruh Data</a>
                                         </div>
                                         </div>
                                         <!-- Akhir Card -->

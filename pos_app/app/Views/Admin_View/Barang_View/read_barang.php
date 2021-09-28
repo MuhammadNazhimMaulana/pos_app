@@ -12,7 +12,7 @@
                                             <h5>Barang</h5>
                                             <p>Overview</p>
 
-                                            <a href="<?= site_url('Admin/Barang_Admin/create') ?>" class="di-btn purple-gradient mt-5">Tambah Data</a>                                 
+                                            <a href="<?= base_url('admin/goods/create') ?>" class="di-btn purple-gradient mt-5">Tambah Data</a>                                 
                                             </div>
 
                                             <!-- Awal Tabel -->
@@ -42,8 +42,8 @@
                                                             <td><img src="<?= base_url ('upload/Foto Barang/' . $goods->foto_barang)?>" width="50"></td>
                                                             <td><?= $goods->status ?></td>
                                                             <td class="col-md-3">
-                                                                <a href="<?= site_url('Admin/Barang_Admin/view/' . $goods->id_barang) ?>" class="status-tb-btn bg-cla">View</a>
-                                                                <a href="<?= site_url('Admin/Barang_Admin/update/' . $goods->id_barang) ?>" class="status-tb-btn bg-cla">Update</a>
+                                                                <a href="<?= base_url('admin/goods/view/' . $goods->id_barang) ?>" class="status-tb-btn bg-cla">View</a>
+                                                                <a href="<?= base_url('admin/goods/update/' . $goods->id_barang) ?>" class="status-tb-btn bg-cla">Update</a>
                                                                 <a href="#modalDelete<?= $goods->id_barang ?>" data-bs-toggle="modal" onclick="" class="status-tb-btn bg-cla">Delete</a>
                                                             </td>
                                                         </tr>
@@ -79,7 +79,7 @@
                         </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                                <button class="btn btn-danger"><a href="<?= site_url('Admin/Barang_Admin/delete/' . $goods->id_barang) ?>">Delete</a></button>
+                                <button class="btn btn-danger"><a href="<?= base_url('admin/goods/delete/' . $goods->id_barang) ?>">Delete</a></button>
                             </div>
                     </div>
                 </div>

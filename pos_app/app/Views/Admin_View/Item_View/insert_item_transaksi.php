@@ -188,7 +188,7 @@ $errors = $session->getFlashdata('errors');
                                         </div>
                                         
                                         <!-- Awal Input Item -->
-                                        <?= form_open('Admin/Item_Admin/input/'. $informasi->id_transaksi, $attributes) ?>
+                                        <?= form_open('admin/items/input/'. $informasi->id_transaksi, $attributes) ?>
                                         
                                         <div class="row mt-3">
 
@@ -273,7 +273,7 @@ $errors = $session->getFlashdata('errors');
                     </table>
 
                     <!-- Awal Penyesuaian Transaksi -->
-                    <?= form_open('Admin/Transaksi_Admin/check_out/' . $informasi->id_transaksi) ?>
+                    <?= form_open('admin/transactions/check_out/' . $informasi->id_transaksi) ?>
                                             
                         <div class="col-sm-4">
                             <?= form_input($kasir) ?>
@@ -364,7 +364,7 @@ $errors = $session->getFlashdata('errors');
               <div class="modal-body">
                   
                     <!-- Awal Input Item -->
-                        <?= form_open('Admin/Item_Admin/update/'. $shops->id_item) ?>
+                        <?= form_open('admin/items/update/'. $shops->id_item) ?>
                             <div class="row">
                                 <div class="col-sm-4 input">
                                     <?= form_label("Nama Barang", "nomor_barang") ?>
@@ -428,7 +428,7 @@ $errors = $session->getFlashdata('errors');
               <div class="modal-body">
                   
                     <!-- Awal Input Item -->
-                        <?= form_open('Admin/Item_Admin/delete/'. $shops->id_item) ?>
+                        <?= form_open('admin/items/delete/'. $shops->id_item) ?>
                             <div class="row">
 
                                 <div class="col-sm-4 input">
@@ -472,7 +472,7 @@ $errors = $session->getFlashdata('errors');
                 if(id_barang != '')
                 {
                     $.ajax({
-                        url:"<?= site_url('Admin/Item_Admin/action'); ?>",
+                        url:"<?= base_url('admin/items/action'); ?>",
                         method:"POST",
                         data:{id_barang:id_barang, action:action},
                         dataType:"JSON",

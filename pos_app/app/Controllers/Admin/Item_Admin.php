@@ -24,29 +24,6 @@ class Item_Admin extends BaseController
         $this->session = session();
     }
 
-    public function home()
-    {
-        $model = new Transaksi_M();
-
-        $data = [
-            'data_transaksi' => $model
-        ];
-
-        return view('Admin_View/Transaksi_View/home_transaksi', $data);  
-    }
-
-    public function read()
-    {
-        $model = new Harga_M();
-
-        $data = [
-            'data_transaksi' => $model->join('tbl_item_transaksi', 'tbl_item_transaksi.id_transaksi = tbl_transaksi.id_transaksi')->join('tbl_barang', 'tbl_item_transaksi.id_barang = tbl_barang.id_barang')->paginate(10, 'transaksi'),
-            'pager' => $model->pager,
-        ];
-
-        return view('Admin_View/Transaksi_View/read_transaksi', $data);
-    }
-
     public function input(){
         // Dapatkan Id dari segmen
         $id_transaksi = $this->request->uri->getSegment(4);
@@ -71,14 +48,15 @@ class Item_Admin extends BaseController
         $items = $model_item->join('tbl_barang', 'tbl_barang.id_barang = tbl_item_transaksi.id_barang')->join('tbl_transaksi', 'tbl_transaksi.id_transaksi = tbl_item_transaksi.id_transaksi')->where('tbl_item_transaksi.id_transaksi', $id_transaksi)->findAll();
 
         // Mendapatkan Total Bayar
-        $total_bayar = $model_item->select('SUM(tbl_item_transaksi.total_item) AS jumlah')->get();
+        $total_bayar = $model_item->select('SUM(tbl_item_transaksi.total_item) AS jumlah')->where('tbl_item_transaksi.id_transaksi', $id_transaksi)->get();
 
         $data = [
             'nama' => $this->session->get('username'),
             'informasi' => $informasi,
             'daftar_barang' => $list_barang,
             'item' => $items,
-            'total' => $total_bayar->getResult()
+            'total' => $total_bayar->getResult(),
+            'title' => 'transaksi',
         ];
 
         if ($this->request->getPost()) {
@@ -102,7 +80,7 @@ class Item_Admin extends BaseController
 
                 $model->save($item);
 
-                $segments = ['Admin', 'Item_Admin', 'input', $id_transaksi];
+                $segments = ['admin', 'items', 'input', $id_transaksi];
 
                 // Akan redirect ke /Admin/Rak_A/view/$id_barang
                 return redirect()->to(site_url($segments));
@@ -153,7 +131,7 @@ class Item_Admin extends BaseController
 
             $id_transaksi = $items->id_transaksi;
             
-            $segments = ['Admin', 'Item_Admin', 'input', $id_transaksi];
+            $segments = ['admin', 'items', 'input', $id_transaksi];
 
             return redirect()->to(site_url($segments));
     }
@@ -176,7 +154,7 @@ class Item_Admin extends BaseController
         // Id_transaksi agar kembali ke input
         $id_transaksi = $items->id_transaksi;
         
-        $segments = ['Admin', 'Item_Admin', 'input', $id_transaksi];
+        $segments = ['admin', 'items', 'input', $id_transaksi];
 
         return redirect()->to(site_url($segments));
     }

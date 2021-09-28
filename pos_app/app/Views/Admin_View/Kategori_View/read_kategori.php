@@ -12,7 +12,7 @@
                                             <h5>Kategori</h5>
                                             <p>Overview</p>
 
-                                            <a href="<?= site_url('Admin/Kategori_Admin/create') ?>" class="di-btn purple-gradient mt-5">Tambah Data</a>                                 
+                                            <a href="<?= base_url('admin/categories/create') ?>" class="di-btn purple-gradient mt-5">Tambah Data</a>                                 
                                             </div>
 
                                             <!-- Awal Tabel -->
@@ -36,8 +36,8 @@
                                                             <td><img src="<?= base_url ('upload/Foto Kategori/' . $kategories->foto_kategori)?>" width="100"></td>
                                                             <td><?= $kategories->keterangan ?></td>
                                                             <td class="col-md-3">
-                                                                <a href="<?= site_url('Admin/Kategori_Admin/view/' . $kategories->id_kategori) ?>" class="status-tb-btn bg-cla">View</a>
-                                                                <a href="<?= site_url('Admin/Kategori_Admin/update/' . $kategories->id_kategori) ?>" class="status-tb-btn bg-cla">Update</a>
+                                                                <a href="<?= base_url('admin/categories/view/' . $kategories->id_kategori) ?>" class="status-tb-btn bg-cla">View</a>
+                                                                <a href="<?= base_url('admin/categories/update/' . $kategories->id_kategori) ?>" class="status-tb-btn bg-cla">Update</a>
                                                                 <a href="#modalDelete<?= $kategories->id_kategori ?>" data-bs-toggle="modal" onclick="" class="status-tb-btn bg-cla">Delete</a>
                                                             </td>
                                                         </tr>
@@ -73,7 +73,7 @@
                         </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                                <button class="btn btn-danger"><a href="<?= site_url('Admin/Kategori_Admin/delete/' . $kategories->id_kategori) ?>">Delete</a></button>
+                                <button class="btn btn-danger"><a href="<?= base_url('admin/categories/delete/' . $kategories->id_kategori) ?>">Delete</a></button>
                             </div>
                     </div>
                 </div>

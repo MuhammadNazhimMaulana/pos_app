@@ -12,7 +12,7 @@
                                             <h5>Stok</h5>
                                             <p>Overview</p>
 
-                                            <a href="<?= site_url('Admin/Stok_Admin/create') ?>" class="di-btn purple-gradient mt-5">Tambah Data</a>                                 
+                                            <a href="<?= base_url('admin/stocks/create') ?>" class="di-btn purple-gradient mt-5">Tambah Data</a>                                 
                                             </div>
 
                                             <!-- Awal Tabel -->
@@ -42,8 +42,8 @@
                                                             <td><?= $stocks->tanggal_masuk ?></td>
                                                             <td><?= $stocks->tanggal_kadaluarsa ?></td>
                                                             <td class="col-md-3">
-                                                                <a href="<?= site_url('Admin/Stok_Admin/view/' . $stocks->id_stok) ?>" class="status-tb-btn bg-cla">View</a>
-                                                                <a href="<?= site_url('Admin/Stok_Admin/update/' . $stocks->id_stok) ?>" class="status-tb-btn bg-cla">Update</a>
+                                                                <a href="<?= base_url('admin/stocks/view/' . $stocks->id_stok) ?>" class="status-tb-btn bg-cla">View</a>
+                                                                <a href="<?= base_url('admin/stocks/update/' . $stocks->id_stok) ?>" class="status-tb-btn bg-cla">Update</a>
                                                                 <a href="#modalDelete<?= $stocks->id_stok ?>" data-bs-toggle="modal" onclick="" class="status-tb-btn bg-cla">Delete</a>
                                                             </td>
                                                         </tr>
@@ -79,7 +79,7 @@
                         </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                                <button class="btn btn-danger"><a href="<?= site_url('Admin/Stok_Admin/delete/' . $stocks->id_stok) ?>">Delete</a></button>
+                                <button class="btn btn-danger"><a href="<?= base_url('admin/stocks/delete/' . $stocks->id_stok) ?>">Delete</a></button>
                             </div>
                     </div>
                 </div>

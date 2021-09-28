@@ -75,7 +75,7 @@ $errors = $session->getFlashdata('errors');
                 <?php endif ?>
 
                 <!-- Membuat Form dengan Form Helper -->
-                <?= form_open_multipart('Admin/Stok_Admin/create') ?>
+                <?= form_open_multipart('admin/stocks/create') ?>
 
                 <div class="form-group mt-3">
                         <?= form_label("Nama Barang", "id_barang") ?>

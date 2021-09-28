@@ -25,7 +25,8 @@ class Kategori_Admin extends BaseController
         $model = new Kategori_M();
 
         $data = [
-            'data_kategori' => $model->findAll()
+            'data_kategori' => $model->findAll(),
+            'title' => 'kategori',
         ];
 
         return view('Admin_View/Kategori_View/read_kategori', $data);
@@ -43,7 +44,7 @@ class Kategori_Admin extends BaseController
         // Data yang akan dikirim ke view specific
         $data = [
             "kategori" =>$kategori,
-            "title" => 'Kategori'
+            "title" => 'kategori'
         ];
 
         return view('Admin_View/Kategori_View/view_specific_kategori', $data);
@@ -52,7 +53,7 @@ class Kategori_Admin extends BaseController
     public function create()
     {
         $data_kategori = [
-            "title" => 'Kategori'
+            "title" => 'kategori'
         ];
 
         if ($this->request->getPost()) {
@@ -77,7 +78,7 @@ class Kategori_Admin extends BaseController
 
                 $id_kategori = $model->insertID();
 
-                $segments = ['Admin', 'Kategori_Admin', 'view', $id_kategori];
+                $segments = ['admin', 'categories', 'view', $id_kategori];
 
                 // Akan redirect ke /Admin/Rak_A/view/$id_barang
                 return redirect()->to(site_url($segments));
@@ -98,7 +99,7 @@ class Kategori_Admin extends BaseController
 
         $data = [
             'kategori' =>$kategori,
-            "title" => 'Kategori'
+            "title" => 'kategori'
         ];
 
         if ($this->request->getPost()) {
@@ -120,7 +121,7 @@ class Kategori_Admin extends BaseController
 
                 $model->save($kategori);
 
-                $segments = ['Admin', 'Kategori_Admin', 'view', $id_kategori];
+                $segments = ['admin', 'categories', 'view', $id_kategori];
 
                 return redirect()->to(site_url($segments));
             }
@@ -137,6 +138,6 @@ class Kategori_Admin extends BaseController
 
         $delete = $model->delete($id_kategori);
 
-        return redirect()->to(site_url('Admin/Kategori_Admindmin/read'));
+        return redirect()->to(site_url('admin/categories'));
     }
 }

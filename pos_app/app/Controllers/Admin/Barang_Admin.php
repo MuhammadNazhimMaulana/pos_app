@@ -30,6 +30,7 @@ class Barang_Admin extends BaseController
         $data = [
             'data_barang' => $model->join('tbl_kategori', 'tbl_kategori.id_kategori = tbl_barang.id_kategori')->paginate(10, 'barang'),
             'pager' => $model->pager,
+            'title' => 'barang',
         ];
 
         return view('Admin_View/Barang_View/read_barang', $data);
@@ -47,7 +48,7 @@ class Barang_Admin extends BaseController
         // Data yang akan dikirim ke view specific
         $data = [
             "barang" => $barang,
-            "title" => 'Barang'
+            'title' => 'barang',
         ];
 
         return view('Admin_View/Barang_View/view_specific_barang', $data);
@@ -66,7 +67,7 @@ class Barang_Admin extends BaseController
         }
 
         $data_barang = [
-            'title' => 'Barang',
+            'title' => 'barang',
             'daftar_kategori' => $list_kategori,
         ];
 
@@ -92,7 +93,7 @@ class Barang_Admin extends BaseController
 
                 $id_barang = $model->insertID();
 
-                $segments = ['Admin', 'Barang_Admin', 'view', $id_barang];
+                $segments = ['admin', 'goods', 'view', $id_barang];
 
                 // Akan redirect ke /Admin/Rak_A/view/$id_barang
                 return redirect()->to(site_url($segments));
@@ -129,7 +130,7 @@ class Barang_Admin extends BaseController
             'barang' =>$barang,
             'daftar_kategori' => $list_kategori,
             'harga' => $harga,
-            'title' => 'Barang',
+            'title' => 'barang',
         ];
 
         if ($this->request->getPost()) {
@@ -151,7 +152,7 @@ class Barang_Admin extends BaseController
 
                 $model->save($barang);
 
-                $segments = ['Admin', 'barang_Admin', 'view', $id_barang];
+                $segments = ['admin', 'goods', 'view', $id_barang];
 
                 return redirect()->to(site_url($segments));
             }
@@ -168,6 +169,6 @@ class Barang_Admin extends BaseController
 
         $delete = $model->delete($id_barang);
 
-        return redirect()->to(site_url('Admin/Barang_Admindmin/read'));
+        return redirect()->to(base_url('admin/goods'));
     }
 }

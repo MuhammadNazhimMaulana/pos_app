@@ -12,7 +12,7 @@
                                             <h5>Transaksi</h5>
                                             <p>Overview</p>
 
-                                            <a href="<?= site_url('Admin/Transaksi_Admin/home') ?>" class="di-btn purple-gradient mt-5">Home</a>                                 
+                                            <a href="<?= site_url('admin/transactions/home') ?>" class="di-btn purple-gradient mt-5">Home</a>                                 
                                             </div>
 
                                             <!-- Awal Tabel -->
@@ -40,7 +40,7 @@
                                                             <td><?= $transactions->total_bayar ?></td>
                                                             <td><?= $transactions->kembalian ?></td>
                                                             <td class="col-md-3">
-                                                                <a href="<?= site_url('Admin/Transaksi_Admin/view/' . $transactions->id_transaksi) ?>" class="status-tb-btn bg-cla">View</a>
+                                                                <a href="<?= site_url('admin/transactions/view/' . $transactions->id_transaksi) ?>" class="status-tb-btn bg-cla">View</a>
                                                             </td>
                                                         </tr>
                                                     <?php endforeach ?>

@@ -12,7 +12,7 @@
                                             <h5>Harga</h5>
                                             <p>Overview</p>
 
-                                            <a href="<?= site_url('Admin/Harga_Admin/create') ?>" class="di-btn purple-gradient mt-5">Tambah Data</a>                                 
+                                            <a href="<?= base_url('admin/prizes/create') ?>" class="di-btn purple-gradient mt-5">Tambah Data</a>                                 
                                             </div>
 
                                             <!-- Awal Tabel -->
@@ -38,8 +38,8 @@
                                                             <td><?= $prizes->range_2 ?></td>
                                                             <td><?= $prizes->harga_asli ?></td>
                                                             <td class="col-md-3">
-                                                                <a href="<?= site_url('Admin/Harga_Admin/view/' . $prizes->id_harga) ?>" class="status-tb-btn bg-cla">View</a>
-                                                                <a href="<?= site_url('Admin/Harga_Admin/update/' . $prizes->id_harga) ?>" class="status-tb-btn bg-cla">Update</a>
+                                                                <a href="<?= base_url('admin/prizes/view/' . $prizes->id_harga) ?>" class="status-tb-btn bg-cla">View</a>
+                                                                <a href="<?= base_url('admin/prizes/update/' . $prizes->id_harga) ?>" class="status-tb-btn bg-cla">Update</a>
                                                                 <a href="#modalDelete<?= $prizes->id_harga ?>" data-bs-toggle="modal" onclick="" class="status-tb-btn bg-cla">Delete</a>
                                                             </td>
                                                         </tr>
@@ -75,7 +75,7 @@
                         </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                                <button class="btn btn-danger"><a href="<?= site_url('Admin/Harga_Admin/delete/' . $prizes->id_harga) ?>">Delete</a></button>
+                                <button class="btn btn-danger"><a href="<?= base_url('admin/prizes/delete/' . $prizes->id_harga) ?>">Delete</a></button>
                             </div>
                     </div>
                 </div>

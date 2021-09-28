@@ -40,7 +40,7 @@
                         <section>
                             <div class="sm-chart-sec my-5">
                                 <div class="container-fluid">
-                                    <a href="<?= site_url('Admin/Transaksi_Admin/home') ?>" class="status-tb-btn bg-cla">Kembali Ke Home</a>
+                                    <a href="<?= site_url('admin/transactions/home') ?>" class="status-tb-btn bg-cla">Kembali Ke Home</a>
                                     <div class="col-lg-12 mt-3">
                                         <table class="table">
                                             <thead>
@@ -91,7 +91,7 @@
                                         <div class="col-sm-3"></div>
                                         <div class="col-sm-2"></div>
                                         <div class="col-sm-3 mt-3">
-                                            <a href="<?= site_url('Admin/Transaksi_Admin/pdf/' . $transaksi->id_transaksi) ?>" class="status-tb-btn bg-cla">View PDF</a>
+                                            <a href="<?= site_url('admin/transactions/pdf/' . $transaksi->id_transaksi) ?>" class="status-tb-btn bg-cla">View PDF</a>
                                         </div>
                                         <div class="col-sm-3"></div>
                                     </div>

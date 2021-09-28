@@ -29,6 +29,7 @@ class Harga_Admin extends BaseController
         $data = [
             'data_harga' => $model->join('tbl_barang', 'tbl_barang.id_barang = tbl_harga.id_barang')->paginate(10, 'harga'),
             'pager' => $model->pager,
+            'title' => 'harga',
         ];
 
         return view('Admin_View/Harga_View/read_harga', $data);
@@ -46,7 +47,7 @@ class Harga_Admin extends BaseController
         // Data yang akan dikirim ke view specific
         $data = [
             "prize" =>$harga,
-            "title" => 'Harga'
+            "title" => 'harga'
         ];
 
         return view('Admin_View/Harga_View/view_specific_harga', $data);
@@ -65,7 +66,7 @@ class Harga_Admin extends BaseController
         }
 
         $data_harga = [
-            "title" => 'Harga',
+            "title" => 'harga',
             'daftar_barang' => $list_barang,
         ];
 
@@ -93,7 +94,7 @@ class Harga_Admin extends BaseController
 
                 $id_harga = $model->insertID();
 
-                $segments = ['Admin', 'Harga_Admin', 'view', $id_harga];
+                $segments = ['admin', 'prizes', 'view', $id_harga];
 
                 // Akan redirect ke /Admin/Rak_A/view/$id_barang
                 return redirect()->to(site_url($segments));
@@ -124,7 +125,7 @@ class Harga_Admin extends BaseController
 
         $data = [
             'prize' =>$harga,
-            "title" => 'Harga',
+            "title" => 'harga',
             'daftar_barang' => $list_barang,
         ];
 
@@ -145,7 +146,7 @@ class Harga_Admin extends BaseController
 
                 $model->save($prize);
 
-                $segments = ['Admin', 'Harga_Admin', 'view', $id_harga];
+                $segments = ['admin', 'prizes', 'view', $id_harga];
 
                 return redirect()->to(site_url($segments));
             }
@@ -162,6 +163,6 @@ class Harga_Admin extends BaseController
 
         $delete = $model->delete($id_harga);
 
-        return redirect()->to(site_url('Admin/Harga_Admin/read'));
+        return redirect()->to(site_url('admin/prizes'));
     }
 }

@@ -120,7 +120,7 @@ $errors = $session->getFlashdata('errors');
                                     <!-- Akhir Jika Error -->
 
                                     <!-- Awal Pembayaran -->
-                                    <?= form_open('Admin/Transaksi_Admin/pembayaran/'. $transaksi->id_transaksi) ?>
+                                    <?= form_open('admin/transactions/payment/'. $transaksi->id_transaksi) ?>
                                         <div class="row">
                                             <div class="col-sm-4 input">
                                                 <?= form_label("Nomor Transaksi", "id_transaksi") ?>

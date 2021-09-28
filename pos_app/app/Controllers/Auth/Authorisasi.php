@@ -89,7 +89,7 @@ class Authorisasi extends BaseController
 
                 $this->session->set($session_data);
 
-                return redirect()->to(site_url('Admin/Dashboard_Admin/home'));
+                return redirect()->to(site_url('admin/'));
             }
             
             $this->session->setFlashdata('errors', $errors);

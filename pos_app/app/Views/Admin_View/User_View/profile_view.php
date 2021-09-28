@@ -76,7 +76,7 @@ $errors = $session->getFlashdata('errors');
                                                     <?= form_input($usia) ?>
                                                 </div>
                                                 <div class="d-flex justify-content-center col-sm-10 mb-4">
-                                                    <a href="<?= site_url('Admin/Dashboard_Admin/update/'. $profil->id_pengguna) ?>" class="di-btn-trans purple-gradient">Ubah Profile</a>
+                                                    <a href="<?= site_url('admin/profile/update/'. $profil->id_pengguna) ?>" class="di-btn-trans purple-gradient">Ubah Profile</a>
                                                 </div>
                                             </div>
                                         </div>

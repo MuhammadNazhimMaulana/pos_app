@@ -57,7 +57,7 @@ $errors = $session->getFlashdata('errors');
                 <?php endif ?>
 
                 <!-- Membuat Form dengan Form Helper -->
-                <?= form_open_multipart('Admin/Kategori_Admin/create') ?>
+                <?= form_open_multipart('admin/categories/create') ?>
 
                 <div class="form-group mt-3">
                         <?= form_label("Nama Kategori", "nama_kategori") ?>
