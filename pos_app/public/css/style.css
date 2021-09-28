@@ -321,3 +321,12 @@ input.di-btn-trans.purple-gradient.bersih {
 section.dashboard-top-sec.trans {
   min-height: 900px;
 }
+
+.foto-profile {
+  z-index: 10;
+  margin-left: 105px;
+}
+
+a.di-btn-trans.purple-gradient.ubah-pic {
+  margin-left: 50px;
+}

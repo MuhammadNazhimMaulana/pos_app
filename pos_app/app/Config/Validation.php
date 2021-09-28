@@ -395,5 +395,24 @@ class Validation
 		],
 	];
 	
+	// Bagian profile
+	public $profile_update = [
+		'username' => [
+			'rules' => 'required',
+		],
+		'password' => [
+			'rules' => 'required',
+		],
+	];
+
+	public $profile_update_errors = [
+		'username' => [
+			'required' => '{field} Harus diisi',
+		],
+		'password' => [
+			'required' => '{field} Harus diisi',
+		],
+	];
+	
     //--------------------------------------------------------------------
 }
