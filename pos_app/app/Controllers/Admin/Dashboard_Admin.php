@@ -74,7 +74,7 @@ class Dashboard_Admin extends BaseController
 
                 $model->save($pengguna);
 
-                $segments = ['Admin', 'Dashboard_Admin', 'profile'];
+                $segments = ['admin', 'profile'];
 
                 return redirect()->to(site_url($segments));
             }

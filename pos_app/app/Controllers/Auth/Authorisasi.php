@@ -75,7 +75,7 @@ class Authorisasi extends BaseController
 
             $user = $model->where('username', $username)->first();
 
-            if ($user->password !== md5($password)) {
+            if (password_verify($password, $user->password) == false) {
 
                 $this->session->setFlashdata('errors', ['Password Salah']);
             } else {

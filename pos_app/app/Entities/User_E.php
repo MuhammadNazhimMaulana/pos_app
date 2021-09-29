@@ -23,7 +23,7 @@ class User_E extends Entity
     // Set Password user
     public function setPassword(string $password)
     {
-        $this->attributes['password'] = md5($password);
+        $this->attributes['password'] = password_hash($password, PASSWORD_DEFAULT);
 
         return $this;
     }

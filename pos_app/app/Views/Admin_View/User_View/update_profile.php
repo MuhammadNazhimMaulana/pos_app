@@ -80,7 +80,7 @@ $errors = $session->getFlashdata('errors');
                 <?php endif ?>
 
                 <!-- Membuat Form dengan Form Helper -->
-                <?= form_open_multipart('Admin/Dashboard_Admin/update/' . $profil->id_pengguna) ?>
+                <?= form_open_multipart('admin/profile/update/' . $profil->id_pengguna) ?>
                 
                 <!-- Preview Gambar -->
                 <div class="text-center">
