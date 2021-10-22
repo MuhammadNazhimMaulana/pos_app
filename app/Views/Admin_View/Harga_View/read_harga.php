@@ -38,9 +38,9 @@
                                                             <td><?= $prizes->range_2 ?></td>
                                                             <td><?= $prizes->harga_asli ?></td>
                                                             <td class="col-md-3">
-                                                                <a href="<?= base_url('admin/prizes/view/' . $prizes->id_harga) ?>" class="status-tb-btn bg-cla">View</a>
-                                                                <a href="<?= base_url('admin/prizes/update/' . $prizes->id_harga) ?>" class="status-tb-btn bg-cla">Update</a>
-                                                                <a href="#modalDelete<?= $prizes->id_harga ?>" data-bs-toggle="modal" onclick="" class="status-tb-btn bg-cla">Delete</a>
+                                                                <a href="<?= base_url('admin/prizes/view/' . $prizes->id) ?>" class="status-tb-btn bg-cla">View</a>
+                                                                <a href="<?= base_url('admin/prizes/update/' . $prizes->id) ?>" class="status-tb-btn bg-cla">Update</a>
+                                                                <a href="#modalDelete<?= $prizes->id ?>" data-bs-toggle="modal" onclick="" class="status-tb-btn bg-cla">Delete</a>
                                                             </td>
                                                         </tr>
                                                     <?php endforeach ?>

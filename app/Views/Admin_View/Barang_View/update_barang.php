@@ -113,7 +113,6 @@ $errors = $session->getFlashdata('errors');
                         <img class="img-fluid mb-3 mt-3" width="50" src="<?= base_url('upload/Foto Barang/' . $barang->foto_barang) ?>">
                 </div>
 
-
                 <div class="form-group mt-3">
                         <?= form_label("Foto Barang", "foto_barang") ?>
 
